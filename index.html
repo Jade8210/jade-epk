@@ -8,35 +8,38 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- keeping your original font combo, just using Playfair a bit more bold -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f3d9cf;
-      --bg-deep: #e6b6a9;
-      --panel: rgba(255, 244, 239, 0.78);
-      --text: #9c4836;        /* deeper, a little spicy */
-      --text-soft: rgba(156,72,54,.7);
-      --ink: #5a2520;         /* for headings */
-      --accent: #d1957f;      /* button / hover accent */
+      /* new palette: creamy base + deeper rose for edge */
+      --bg: #f5d4c8;
+      --bg-deep: #d2907d;
+      --panel: rgba(255, 244, 239, 0.74);
+      --ink: #5a1f25;               /* dark, femme, not black */
+      --text: #a24f44;
+      --muted: rgba(162, 79, 68, .6);
+      --accent: #d98f71;
       --max: 1080px;
     }
+
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at 10% 0%, #fce8e0 0%, #f0c1b3 52%, #dfaa9e 100%);
-      color: var(--text);
+      min-height: 100vh;
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
-      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 0%, #ffe9df 0%, #f4c5b6 38%, #e69e8a 80%) fixed,
+        linear-gradient(120deg, #f7d5ca 0%, #e59c86 100%) fixed;
+      background-blend-mode: screen;
+      color: var(--text);
       position: relative;
       overflow-x: hidden;
     }
 
-    /* ✨ DENSE SPARKLES – now champagne/pinkish and all across */
+    /* ✨ SPARKLES — same vibe you liked, just keeping them */
     .sparkle-layer,
     .sparkle-layer2,
     .sparkle-layer3,
@@ -66,268 +69,129 @@
       top: 0;
       width: 5px;
       height: 5px;
-      background: rgba(255,229,223,0.95); /* soft champagne */
+      background: rgba(255,229,223,0.98);
       transform: rotate(45deg);
       border-radius: 1px;
-      filter:
-        drop-shadow(0 0 6px rgba(255,223,215,0.85))
-        drop-shadow(0 0 14px rgba(255,255,255,0.8));
+      filter: drop-shadow(0 0 6px rgba(255,223,215,0.9)) drop-shadow(0 0 14px rgba(255,255,255,0.85));
       animation: twinkle 7s ease-in-out infinite;
     }
 
-    /* layer 1 */
+    /* these giant box-shadows are what spread them across the page */
     .sparkle-layer::before {
       left: 0;
-      box-shadow:
-        40px 50px #ffe5df,
-        120px 160px #ffe5df,
-        210px 90px #ffe5df,
-        300px 230px #ffe5df,
-        380px 140px #ffe5df,
-        460px 270px #ffe5df,
-        540px 80px #ffe5df,
-        620px 210px #ffe5df,
-        700px 120px #ffe5df,
-        780px 260px #ffe5df,
-        860px 180px #ffe5df,
-        940px 90px #ffe5df,
-        1020px 240px #ffe5df,
-        1100px 140px #ffe5df,
-        1180px 70px #ffe5df,
-        1260px 210px #ffe5df,
-        1340px 150px #ffe5df,
-        1420px 90px #ffe5df;
+      box-shadow: 40px 50px #ffe5df, 120px 160px #ffe5df, 210px 90px #ffe5df, 300px 230px #ffe5df,
+                  380px 140px #ffe5df, 460px 270px #ffe5df, 540px 80px #ffe5df, 620px 210px #ffe5df,
+                  700px 120px #ffe5df, 780px 260px #ffe5df, 860px 180px #ffe5df, 940px 90px #ffe5df,
+                  1020px 240px #ffe5df, 1100px 140px #ffe5df, 1180px 70px #ffe5df, 1260px 210px #ffe5df,
+                  1340px 150px #ffe5df, 1420px 90px #ffe5df;
       animation-delay: .3s;
     }
     .sparkle-layer::after {
       left: 300px;
-      box-shadow:
-        30px 70px #ffe5df,
-        110px 190px #ffe5df,
-        190px 100px #ffe5df,
-        280px 240px #ffe5df,
-        360px 150px #ffe5df,
-        440px 280px #ffe5df,
-        520px 90px #ffe5df,
-        600px 220px #ffe5df,
-        680px 130px #ffe5df,
-        760px 270px #ffe5df,
-        840px 190px #ffe5df,
-        920px 100px #ffe5df,
-        1000px 250px #ffe5df,
-        1080px 150px #ffe5df,
-        1160px 80px #ffe5df,
-        1240px 220px #ffe5df,
-        1320px 160px #ffe5df,
-        1400px 100px #ffe5df;
+      box-shadow: 30px 70px #ffe5df, 110px 190px #ffe5df, 190px 100px #ffe5df, 280px 240px #ffe5df,
+                  360px 150px #ffe5df, 440px 280px #ffe5df, 520px 90px #ffe5df, 600px 220px #ffe5df,
+                  680px 130px #ffe5df, 760px 270px #ffe5df, 840px 190px #ffe5df, 920px 100px #ffe5df,
+                  1000px 250px #ffe5df, 1080px 150px #ffe5df, 1160px 80px #ffe5df, 1240px 220px #ffe5df,
+                  1320px 160px #ffe5df, 1400px 100px #ffe5df;
       animation-delay: 1s;
     }
     .sparkle-layer span {
       left: 600px;
-      box-shadow:
-        20px 60px #ffe5df,
-        100px 180px #ffe5df,
-        180px 90px #ffe5df,
-        260px 230px #ffe5df,
-        340px 140px #ffe5df,
-        420px 270px #ffe5df,
-        500px 80px #ffe5df,
-        580px 210px #ffe5df,
-        660px 120px #ffe5df,
-        740px 260px #ffe5df,
-        820px 180px #ffe5df,
-        900px 90px #ffe5df,
-        980px 240px #ffe5df,
-        1060px 140px #ffe5df,
-        1140px 70px #ffe5df,
-        1220px 210px #ffe5df,
-        1300px 150px #ffe5df,
-        1380px 90px #ffe5df;
+      box-shadow: 20px 60px #ffe5df, 100px 180px #ffe5df, 180px 90px #ffe5df, 260px 230px #ffe5df,
+                  340px 140px #ffe5df, 420px 270px #ffe5df, 500px 80px #ffe5df, 580px 210px #ffe5df,
+                  660px 120px #ffe5df, 740px 260px #ffe5df, 820px 180px #ffe5df, 900px 90px #ffe5df,
+                  980px 240px #ffe5df, 1060px 140px #ffe5df, 1140px 70px #ffe5df, 1220px 210px #ffe5df,
+                  1300px 150px #ffe5df, 1380px 90px #ffe5df;
       animation-delay: 1.7s;
     }
 
-    /* layer 2 */
+    /* more layers */
     .sparkle-layer2::before {
       left: 150px;
-      box-shadow:
-        40px 340px #ffe5df,
-        120px 420px #ffe5df,
-        200px 360px #ffe5df,
-        280px 500px #ffe5df,
-        360px 390px #ffe5df,
-        440px 520px #ffe5df,
-        520px 350px #ffe5df,
-        600px 480px #ffe5df,
-        680px 400px #ffe5df,
-        760px 540px #ffe5df,
-        840px 430px #ffe5df,
-        920px 360px #ffe5df,
-        1000px 510px #ffe5df,
-        1080px 410px #ffe5df,
-        1160px 350px #ffe5df,
-        1240px 520px #ffe5df;
+      box-shadow: 40px 340px #ffe5df, 120px 420px #ffe5df, 200px 360px #ffe5df, 280px 500px #ffe5df,
+                  360px 390px #ffe5df, 440px 520px #ffe5df, 520px 350px #ffe5df, 600px 480px #ffe5df,
+                  680px 400px #ffe5df, 760px 540px #ffe5df, 840px 430px #ffe5df, 920px 360px #ffe5df,
+                  1000px 510px #ffe5df, 1080px 410px #ffe5df, 1160px 350px #ffe5df, 1240px 520px #ffe5df;
       animation-delay: .6s;
     }
     .sparkle-layer2::after {
       left: 450px;
-      box-shadow:
-        30px 350px #ffe5df,
-        110px 430px #ffe5df,
-        190px 370px #ffe5df,
-        270px 510px #ffe5df,
-        350px 400px #ffe5df,
-        430px 530px #ffe5df,
-        510px 360px #ffe5df,
-        590px 490px #ffe5df,
-        670px 410px #ffe5df,
-        750px 550px #ffe5df,
-        830px 440px #ffe5df,
-        910px 370px #ffe5df,
-        990px 520px #ffe5df,
-        1070px 420px #ffe5df,
-        1150px 360px #ffe5df,
-        1230px 530px #ffe5df;
+      box-shadow: 30px 350px #ffe5df, 110px 430px #ffe5df, 190px 370px #ffe5df, 270px 510px #ffe5df,
+                  350px 400px #ffe5df, 430px 530px #ffe5df, 510px 360px #ffe5df, 590px 490px #ffe5df,
+                  670px 410px #ffe5df, 750px 550px #ffe5df, 830px 440px #ffe5df, 910px 370px #ffe5df,
+                  990px 520px #ffe5df, 1070px 420px #ffe5df, 1150px 360px #ffe5df, 1230px 530px #ffe5df;
       animation-delay: 1.3s;
     }
     .sparkle-layer2 span {
       left: 750px;
-      box-shadow:
-        20px 360px #ffe5df,
-        100px 440px #ffe5df,
-        180px 380px #ffe5df,
-        260px 520px #ffe5df,
-        340px 410px #ffe5df,
-        420px 540px #ffe5df,
-        500px 370px #ffe5df,
-        580px 500px #ffe5df,
-        660px 420px #ffe5df,
-        740px 560px #ffe5df,
-        820px 450px #ffe5df,
-        900px 380px #ffe5df,
-        980px 530px #ffe5df,
-        1060px 430px #ffe5df,
-        1140px 370px #ffe5df,
-        1220px 540px #ffe5df;
+      box-shadow: 20px 360px #ffe5df, 100px 440px #ffe5df, 180px 380px #ffe5df, 260px 520px #ffe5df,
+                  340px 410px #ffe5df, 420px 540px #ffe5df, 500px 370px #ffe5df, 580px 500px #ffe5df,
+                  660px 420px #ffe5df, 740px 560px #ffe5df, 820px 450px #ffe5df, 900px 380px #ffe5df,
+                  980px 530px #ffe5df, 1060px 430px #ffe5df, 1140px 370px #ffe5df, 1220px 540px #ffe5df;
       animation-delay: 2.1s;
     }
 
-    /* layer 3 */
     .sparkle-layer3::before {
       left: 80px;
-      box-shadow:
-        40px 20px #ffe5df,
-        130px 120px #ffe5df,
-        220px 40px #ffe5df,
-        310px 160px #ffe5df,
-        400px 80px #ffe5df,
-        490px 190px #ffe5df,
-        580px 60px #ffe5df,
-        670px 150px #ffe5df,
-        760px 40px #ffe5df,
-        850px 170px #ffe5df,
-        940px 100px #ffe5df,
-        1030px 40px #ffe5df,
-        1120px 150px #ffe5df;
+      box-shadow: 40px 20px #ffe5df, 130px 120px #ffe5df, 220px 40px #ffe5df, 310px 160px #ffe5df,
+                  400px 80px #ffe5df, 490px 190px #ffe5df, 580px 60px #ffe5df, 670px 150px #ffe5df,
+                  760px 40px #ffe5df, 850px 170px #ffe5df, 940px 100px #ffe5df, 1030px 40px #ffe5df,
+                  1120px 150px #ffe5df;
       animation-delay: 0s;
     }
     .sparkle-layer3::after {
       left: 380px;
-      box-shadow:
-        30px 30px #ffe5df,
-        120px 130px #ffe5df,
-        210px 50px #ffe5df,
-        300px 170px #ffe5df,
-        390px 90px #ffe5df,
-        480px 200px #ffe5df,
-        570px 70px #ffe5df,
-        660px 160px #ffe5df,
-        750px 50px #ffe5df,
-        840px 180px #ffe5df,
-        930px 110px #ffe5df,
-        1020px 50px #ffe5df,
-        1110px 160px #ffe5df;
+      box-shadow: 30px 30px #ffe5df, 120px 130px #ffe5df, 210px 50px #ffe5df, 300px 170px #ffe5df,
+                  390px 90px #ffe5df, 480px 200px #ffe5df, 570px 70px #ffe5df, 660px 160px #ffe5df,
+                  750px 50px #ffe5df, 840px 180px #ffe5df, 930px 110px #ffe5df, 1020px 50px #ffe5df,
+                  1110px 160px #ffe5df;
       animation-delay: .9s;
     }
     .sparkle-layer3 span {
       left: 680px;
-      box-shadow:
-        20px 40px #ffe5df,
-        110px 140px #ffe5df,
-        200px 60px #ffe5df,
-        290px 180px #ffe5df,
-        380px 100px #ffe5df,
-        470px 210px #ffe5df,
-        560px 80px #ffe5df,
-        650px 170px #ffe5df,
-        740px 60px #ffe5df,
-        830px 190px #ffe5df,
-        920px 120px #ffe5df,
-        1010px 60px #ffe5df,
-        1100px 170px #ffe5df;
+      box-shadow: 20px 40px #ffe5df, 110px 140px #ffe5df, 200px 60px #ffe5df, 290px 180px #ffe5df,
+                  380px 100px #ffe5df, 470px 210px #ffe5df, 560px 80px #ffe5df, 650px 170px #ffe5df,
+                  740px 60px #ffe5df, 830px 190px #ffe5df, 920px 120px #ffe5df, 1010px 60px #ffe5df,
+                  1100px 170px #ffe5df;
       animation-delay: 1.8s;
     }
 
-    /* extra sprinkle */
     .sparkle-layer4::before {
       left: 200px;
-      box-shadow:
-        30px 260px #ffe5df,
-        90px 310px #ffe5df,
-        150px 280px #ffe5df,
-        210px 340px #ffe5df,
-        270px 300px #ffe5df,
-        330px 360px #ffe5df,
-        390px 290px #ffe5df,
-        450px 350px #ffe5df,
-        510px 320px #ffe5df,
-        570px 380px #ffe5df;
+      box-shadow: 30px 260px #ffe5df, 90px 310px #ffe5df, 150px 280px #ffe5df, 210px 340px #ffe5df,
+                  270px 300px #ffe5df, 330px 360px #ffe5df, 390px 290px #ffe5df, 450px 350px #ffe5df,
+                  510px 320px #ffe5df, 570px 380px #ffe5df;
       animation-delay: .4s;
     }
     .sparkle-layer4::after {
       left: 500px;
-      box-shadow:
-        30px 260px #ffe5df,
-        90px 310px #ffe5df,
-        150px 280px #ffe5df,
-        210px 340px #ffe5df,
-        270px 300px #ffe5df,
-        330px 360px #ffe5df,
-        390px 290px #ffe5df,
-        450px 350px #ffe5df,
-        510px 320px #ffe5df,
-        570px 380px #ffe5df;
+      box-shadow: 30px 260px #ffe5df, 90px 310px #ffe5df, 150px 280px #ffe5df, 210px 340px #ffe5df,
+                  270px 300px #ffe5df, 330px 360px #ffe5df, 390px 290px #ffe5df, 450px 350px #ffe5df,
+                  510px 320px #ffe5df, 570px 380px #ffe5df;
       animation-delay: 1.1s;
     }
     .sparkle-layer4 span {
       left: 800px;
-      box-shadow:
-        30px 260px #ffe5df,
-        90px 310px #ffe5df,
-        150px 280px #ffe5df,
-        210px 340px #ffe5df,
-        270px 300px #ffe5df,
-        330px 360px #ffe5df,
-        390px 290px #ffe5df,
-        450px 350px #ffe5df,
-        510px 320px #ffe5df,
-        570px 380px #ffe5df;
+      box-shadow: 30px 260px #ffe5df, 90px 310px #ffe5df, 150px 280px #ffe5df, 210px 340px #ffe5df,
+                  270px 300px #ffe5df, 330px 360px #ffe5df, 390px 290px #ffe5df, 450px 350px #ffe5df,
+                  510px 320px #ffe5df, 570px 380px #ffe5df;
       animation-delay: 1.7s;
     }
 
     @keyframes twinkle {
-      0%, 20%, 60%, 100% { opacity: 0.15; }
+      0%, 20%, 60%, 100% { opacity: 0.18; }
       30% { opacity: 1; }
       50% { opacity: 0.4; }
     }
 
-    /* film lines + grain */
+    /* film texture */
     .film-lines {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background-image: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 0);
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 0);
       background-size: 3px 100%;
-      opacity: 0.28;
+      opacity: 0.25;
       mix-blend-mode: soft-light;
       z-index: 2;
     }
@@ -336,8 +200,8 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px),
-        radial-gradient(circle, rgba(253,240,234,0.08) 1px, transparent 1px);
+        radial-gradient(circle, rgba(255,255,255,0.13) 1px, transparent 1px),
+        radial-gradient(circle, rgba(253,240,234,0.09) 1px, transparent 1px);
       background-size: 180px 180px, 120px 120px;
       mix-blend-mode: soft-light;
       opacity: 0.22;
@@ -354,8 +218,8 @@
       top: 0;
       z-index: 10;
       backdrop-filter: blur(18px);
-      background: rgba(241,206,196,0.9);
-      border-bottom: 1px solid rgba(156,72,54,0.08);
+      background: rgba(242, 196, 181, 0.68);
+      border-bottom: 1px solid rgba(90,31,37,0.08);
     }
     .nav {
       max-width: var(--max);
@@ -382,17 +246,18 @@
     }
     .nav-links a:hover {
       opacity: 1;
-      text-shadow: 0 0 12px rgba(233,192,175,.4);
+      text-shadow: 0 0 12px rgba(233,192,175,.45);
     }
 
     .hero-wrap {
-      background: rgba(255, 244, 239, 0.85);
-      border: 1px solid rgba(156,72,54,0.12);
-      border-radius: 1.6rem;
       max-width: calc(var(--max) + 1.8rem);
       margin: 3.5rem auto 2rem;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 20px 50px rgba(119,56,44,0.16);
+      border-radius: 1.7rem;
+      background:
+        radial-gradient(circle at top, rgba(255,244,239,0.95) 0%, rgba(255,244,239,0.25) 100%);
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 24px 50px rgba(95,33,39,0.15);
+      backdrop-filter: blur(5px);
       position: relative;
       z-index: 5;
     }
@@ -401,7 +266,7 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 2.2rem;
+      gap: 2.1rem;
       padding: 2.5rem 1.75rem 2.25rem;
       align-items: center;
     }
@@ -416,33 +281,36 @@
       font-size: 0.62rem;
       letter-spacing: .28em;
       text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 0.3rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
     }
     .tagline-soft {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.28em;
+      font-size: 0.62rem;
+      letter-spacing: .28em;
       text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 1.3rem;
+      color: rgba(90,31,37,0.58);
+      margin-bottom: 1.2rem;
     }
-    .hero-text p { max-width: 34rem; margin-bottom: 1.2rem; }
+    .hero-text p {
+      max-width: 34rem;
+      margin-bottom: 1.2rem;
+      color: rgba(90,31,37,0.79);
+    }
     .badge {
-      background: radial-gradient(circle at top, rgba(209,149,127,0.18), rgba(156,72,54,0));
-      border: 1px solid rgba(209,149,127,0.35);
+      background: radial-gradient(circle at top, rgba(217,143,113,0.42), rgba(217,143,113,0));
+      border: 1px solid rgba(217,143,113,0.6);
       border-radius: 999px;
       padding: .45rem 1rem;
       font-size: .6rem;
       color: var(--ink);
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      box-shadow: 0 8px 18px rgba(156,72,54,0.18);
+      box-shadow: 0 8px 18px rgba(156,72,54,0.25);
       transition: transform .2s ease, box-shadow .2s ease;
     }
     .badge:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(156,72,54,0.2);
+      box-shadow: 0 12px 28px rgba(156,72,54,0.35);
     }
 
     .hero-media {
@@ -459,13 +327,13 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      filter: saturate(.9);
     }
-    /* lil noir glaze on the image */
     .hero-media::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0) 0%, rgba(61,30,27,0.22) 100%);
+      background: radial-gradient(circle at 50% 37%, rgba(0,0,0,0) 0%, rgba(45,24,26,0.33) 100%);
       mix-blend-mode: multiply;
       pointer-events: none;
     }
@@ -484,7 +352,7 @@
       color: var(--ink);
     }
     .section-sub {
-      color: var(--text-soft);
+      color: rgba(90,31,37,0.65);
       margin-bottom: 1.25rem;
       max-width: 42rem;
     }
@@ -496,20 +364,20 @@
       margin-bottom: 2.5rem;
     }
     .music-card {
-      background: rgba(255, 244, 239, 0.4);
-      border: 1px solid rgba(156,72,54,0.04);
+      background: rgba(249, 228, 221, 0.65);
+      border: 1px solid rgba(153,59,55,0.03);
       border-radius: 1rem;
       padding: 1rem;
       display: flex;
       gap: .85rem;
       align-items: center;
       box-shadow: 0 10px 30px rgba(52, 29, 28, 0.04);
-      transition: transform .15s ease, box-shadow .15s ease;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
     .music-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(156,72,54,0.16);
-      background: rgba(255, 244, 239, 0.6);
+      box-shadow: 0 8px 28px rgba(156,72,54,0.18);
+      background: rgba(249, 228, 221, 0.95);
     }
     .music-thumb {
       width: 90px;
@@ -524,7 +392,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(87,41,36,0.35) 100%);
+      background: linear-gradient(185deg, rgba(0,0,0,0) 0%, rgba(87,41,36,0.38) 100%);
       mix-blend-mode: soft-light;
       pointer-events: none;
     }
@@ -537,7 +405,7 @@
     .music-meta p {
       margin: .25rem 0 0;
       font-size: .73rem;
-      color: var(--text-soft);
+      color: rgba(90,31,37,0.6);
       letter-spacing: .02em;
     }
 
@@ -569,7 +437,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 60% 45%, rgba(0,0,0,0) 0%, rgba(50,26,25,0.22) 100%);
+      background: radial-gradient(circle at 60% 45%, rgba(0,0,0,0) 0%, rgba(50,26,25,0.24) 100%);
       mix-blend-mode: soft-light;
       pointer-events: none;
     }
@@ -578,7 +446,7 @@
       position: absolute;
       bottom: .75rem;
       left: .75rem;
-      background: rgba(39,17,15,0.55);
+      background: rgba(39,17,15,0.58);
       color: #fff;
       padding: .35rem .7rem;
       border-radius: 999px;
@@ -593,7 +461,7 @@
     }
 
     .contact {
-      background: rgba(255, 244, 239, 0.65);
+      background: rgba(255, 244, 239, 0.78);
       border-top: 1px solid rgba(156,72,54,0.05);
       border-radius: 1.1rem 1.1rem 0 0;
       margin-top: 3rem;
@@ -612,7 +480,7 @@
 
     footer {
       text-align: center;
-      color: var(--text-soft);
+      color: rgba(90,31,37,0.5);
       font-size: .68rem;
       padding: 1rem 0 2rem;
       position: relative;
@@ -677,7 +545,7 @@
           <p>Vintage, cinematic pop · coming December</p>
         </div>
       </article>
-      <article class="music-card" style="background: rgba(255,255,255,0.22);">
+      <article class="music-card">
         <div class="music-thumb"></div>
         <div class="music-meta">
           <h3>Next era – coming soon</h3>
@@ -692,10 +560,10 @@
     <p class="section-sub">Selected frames and promo imagery from the Born to Run visual world.</p>
     <div class="visuals-grid">
       <div class="visual-item">
-        <img src="phone-still.png" alt="Jade on telephone">
+        <img src="phone-still.png" alt="Phone still">
       </div>
       <div class="visual-item">
-        <img src="close-up-still.png" alt="Cinematic closeup">
+        <img src="close-up-still.png" alt="Closeup still">
       </div>
     </div>
   </section>

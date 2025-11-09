@@ -30,8 +30,8 @@
     }
 
     /* ===========================
-       ✨ SUPER-WIDE TWINKLE SPARKLES
-       3 panels per layer: 0, 650, 1300
+       ✨ SPARKLES (STATIONARY TWINKLE)
+       three wide columns (0, 650, 1300) so the right side has sparkle too
        =========================== */
     .sparkle-layer,
     .sparkle-layer2,
@@ -42,7 +42,7 @@
       z-index: 3;
     }
 
-    /* LAYER 1 – big & bright */
+    /* LAYER 1 – bigger diamonds, bright flash */
     .sparkle-layer::before,
     .sparkle-layer::after,
     .sparkle-layer span {
@@ -51,71 +51,71 @@
       top: 0;
       width: 8px;
       height: 8px;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.7);
       transform: rotate(45deg);
       border-radius: 1px;
-      filter: drop-shadow(0 0 15px rgba(255,255,255,1));
-      animation: twinkleA 5.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 16px rgba(255,255,255,1));
+      animation: twinkleA 6.4s ease-in-out infinite;
     }
 
-    /* left */
+    /* left column */
     .sparkle-layer::before {
       left: 0;
       box-shadow:
-        90px 80px rgba(255,255,255,0.95),
-        180px 260px rgba(255,223,214,0.95),
-        320px 120px rgba(255,248,242,0.95),
+        80px 80px rgba(255,255,255,0.95),
+        180px 240px rgba(255,223,214,0.95),
+        330px 120px rgba(255,248,242,0.95),
         520px 40px rgba(255,255,255,0.9),
         720px 210px rgba(255,245,238,0.9),
         980px 100px rgba(255,255,255,0.9),
         60px 420px rgba(255,240,232,0.95),
         280px 380px rgba(255,255,255,0.9),
-        460px 540px rgba(255,245,239,0.9),
+        460px 520px rgba(255,245,239,0.9),
         700px 480px rgba(255,255,255,0.95),
-        940px 360px rgba(255,230,220,0.9),
-        1080px 520px rgba(255,255,255,0.9);
-      animation-delay: 0s;
+        920px 360px rgba(255,230,220,0.9),
+        1080px 540px rgba(255,255,255,0.9);
+      animation-delay: .2s;
     }
 
-    /* middle */
+    /* middle column */
     .sparkle-layer::after {
       left: 650px;
       box-shadow:
-        90px 80px rgba(255,255,255,0.95),
-        180px 260px rgba(255,223,214,0.95),
-        320px 120px rgba(255,248,242,0.95),
-        520px 40px rgba(255,255,255,0.9),
-        720px 210px rgba(255,245,238,0.9),
-        980px 100px rgba(255,255,255,0.9),
-        60px 420px rgba(255,240,232,0.95),
-        280px 380px rgba(255,255,255,0.9),
-        460px 540px rgba(255,245,239,0.9),
+        90px 60px rgba(255,255,255,1),
+        180px 230px rgba(255,223,214,0.95),
+        320px 110px rgba(255,248,242,0.95),
+        520px 50px rgba(255,255,255,0.9),
+        700px 230px rgba(255,245,238,0.9),
+        950px 120px rgba(255,255,255,0.9),
+        40px 430px rgba(255,240,232,0.95),
+        250px 400px rgba(255,255,255,0.9),
+        460px 510px rgba(255,245,239,0.9),
         700px 480px rgba(255,255,255,0.95),
-        940px 360px rgba(255,230,220,0.9),
+        940px 350px rgba(255,230,220,0.9),
         1080px 520px rgba(255,255,255,0.9);
-      animation-delay: 1.1s;
+      animation-delay: 1s;
     }
 
-    /* right */
+    /* right column */
     .sparkle-layer span {
       left: 1300px;
       box-shadow:
-        90px 80px rgba(255,255,255,0.95),
-        180px 260px rgba(255,223,214,0.95),
-        320px 120px rgba(255,248,242,0.95),
-        520px 40px rgba(255,255,255,0.9),
-        720px 210px rgba(255,245,238,0.9),
-        980px 100px rgba(255,255,255,0.9),
-        60px 420px rgba(255,240,232,0.95),
-        280px 380px rgba(255,255,255,0.9),
-        460px 540px rgba(255,245,239,0.9),
+        70px 70px rgba(255,255,255,1),
+        160px 210px rgba(255,223,214,0.95),
+        310px 100px rgba(255,248,242,0.95),
+        500px 60px rgba(255,255,255,0.9),
+        710px 240px rgba(255,245,238,0.9),
+        960px 110px rgba(255,255,255,0.9),
+        20px 420px rgba(255,240,232,0.95),
+        240px 380px rgba(255,255,255,0.9),
+        460px 520px rgba(255,245,239,0.9),
         700px 480px rgba(255,255,255,0.95),
         940px 360px rgba(255,230,220,0.9),
         1080px 520px rgba(255,255,255,0.9);
-      animation-delay: 2.2s;
+      animation-delay: 1.8s;
     }
 
-    /* LAYER 2 – medium */
+    /* LAYER 2 – medium sparkles */
     .sparkle-layer2::before,
     .sparkle-layer2::after,
     .sparkle-layer2 span {
@@ -124,10 +124,10 @@
       top: -20px;
       width: 5px;
       height: 5px;
-      background: rgba(255,244,236,0.85);
+      background: rgba(255,244,236,0.9);
       transform: rotate(45deg);
-      filter: drop-shadow(0 0 12px rgba(255,244,236,1));
-      animation: twinkleB 6.3s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px rgba(255,244,236,1));
+      animation: twinkleB 7.2s ease-in-out infinite;
     }
     .sparkle-layer2::before {
       left: -10px;
@@ -159,7 +159,7 @@
         560px 460px rgba(255,250,247,0.95),
         880px 520px rgba(255,244,236,0.95),
         1030px 430px rgba(255,255,255,0.95);
-      animation-delay: 1.6s;
+      animation-delay: 1.5s;
     }
     .sparkle-layer2 span {
       left: 1300px;
@@ -175,7 +175,7 @@
         560px 460px rgba(255,250,247,0.95),
         880px 520px rgba(255,244,236,0.95),
         1030px 430px rgba(255,255,255,0.95);
-      animation-delay: 2.5s;
+      animation-delay: 2.3s;
     }
 
     /* LAYER 3 – tiny glints */
@@ -187,10 +187,10 @@
       top: 0;
       width: 3px;
       height: 3px;
-      background: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.6);
       transform: rotate(45deg);
       filter: drop-shadow(0 0 6px rgba(255,255,255,0.85));
-      animation: twinkleC 7.5s ease-in-out infinite;
+      animation: twinkleC 8.4s ease-in-out infinite;
     }
     .sparkle-layer3::before {
       left: -20px;
@@ -222,7 +222,7 @@
         310px 520px rgba(255,255,255,0.5),
         540px 610px rgba(255,255,255,0.55),
         760px 560px rgba(255,255,255,0.65);
-      animation-delay: 1.5s;
+      animation-delay: 1.4s;
     }
     .sparkle-layer3 span {
       left: 1300px;
@@ -238,27 +238,27 @@
         310px 520px rgba(255,255,255,0.5),
         540px 610px rgba(255,255,255,0.55),
         760px 560px rgba(255,255,255,0.65);
-      animation-delay: 2.2s;
+      animation-delay: 2s;
     }
 
-    /* ✨ smoother, single twinkle per cycle */
+    /* ✨ SOFT TWINKLE (no bouncing, one bright moment) */
     @keyframes twinkleA {
-      0%, 12%   { opacity: 0.12; transform: rotate(45deg) scale(1); }
-      15%       { opacity: 1;    transform: rotate(45deg) scale(1.45); }
-      22%       { opacity: 0.2;  transform: rotate(45deg) scale(1); }
-      100%      { opacity: 0.12; }
-    }
-    @keyframes twinkleB {
-      0%, 14%   { opacity: 0.08; transform: rotate(45deg) scale(1); }
-      17%       { opacity: 0.9;  transform: rotate(45deg) scale(1.25); }
-      23%       { opacity: 0.16; }
+      0%, 15%   { opacity: 0.08; transform: rotate(45deg) scale(1); }
+      19%       { opacity: 1;    transform: rotate(45deg) scale(1.35); }
+      28%       { opacity: .18;  transform: rotate(45deg) scale(1); }
       100%      { opacity: 0.08; }
     }
-    @keyframes twinkleC {
+    @keyframes twinkleB {
       0%, 18%   { opacity: 0.05; transform: rotate(45deg) scale(1); }
-      21%       { opacity: 0.6;  transform: rotate(45deg) scale(1.12); }
-      28%       { opacity: 0.08; }
+      23%       { opacity: 0.85; transform: rotate(45deg) scale(1.2); }
+      30%       { opacity: .15; }
       100%      { opacity: 0.05; }
+    }
+    @keyframes twinkleC {
+      0%, 22%   { opacity: 0.04; transform: rotate(45deg) scale(1); }
+      27%       { opacity: 0.6;  transform: rotate(45deg) scale(1.08); }
+      34%       { opacity: 0.08; }
+      100%      { opacity: 0.04; }
     }
 
     /* film + grain */
@@ -501,7 +501,7 @@
   </style>
 </head>
 <body>
-  <!-- sparkle + film + grain -->
+  <!-- sparkles + film + grain -->
   <div class="sparkle-layer"><span></span></div>
   <div class="sparkle-layer2"><span></span></div>
   <div class="sparkle-layer3"><span></span></div>

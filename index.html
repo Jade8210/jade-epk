@@ -8,12 +8,12 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg: #f5e7e1;
-      --text: #341d1c;
+      --text: #b86a5a; /* rosy main text */
       --max: 1080px;
     }
     * { box-sizing: border-box; }
@@ -29,28 +29,22 @@
       overflow-x: hidden;
     }
 
-    /* ✨ static-but-twinkling sparkles — 3 layers, no drifting */
-    .sparkles,
-    .sparkles2,
-    .sparkles3 {
+    /* ✨ static twinkly sparkles (3 layers) */
+    .sparkles, .sparkles2, .sparkles3 {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 3;
     }
-
-    /* base layer */
     .sparkles::before {
       content: "";
       position: fixed;
       top: -40px;
       left: -40px;
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       border-radius: 999px;
       background: rgba(255,255,255,0.95);
       filter: drop-shadow(0 0 10px rgba(255,255,255,0.85));
-      /* scattered spots */
       box-shadow:
         120px 90px rgba(255,255,255,0.95),
         360px 140px rgba(255,214,204,0.95),
@@ -59,20 +53,15 @@
         150px 360px rgba(255,224,212,0.95),
         420px 420px rgba(255,255,255,0.9),
         820px 360px rgba(255,234,225,0.95),
-        1050px 520px rgba(255,255,255,0.9),
-        240px 540px rgba(255,226,219,0.9),
-        560px 260px rgba(255,255,255,0.9);
+        1050px 520px rgba(255,255,255,0.9);
       animation: twinkleA 3.8s ease-in-out infinite;
     }
-
-    /* mid layer, smaller + different positions */
     .sparkles2::before {
       content: "";
       position: fixed;
       top: -30px;
       left: 0;
-      width: 4px;
-      height: 4px;
+      width: 4px; height: 4px;
       border-radius: 999px;
       background: rgba(255,255,255,0.75);
       filter: drop-shadow(0 0 8px rgba(255,255,255,0.7));
@@ -84,20 +73,15 @@
         980px 300px rgba(255,255,255,0.8),
         360px 520px rgba(255,236,225,0.85),
         690px 500px rgba(255,255,255,0.85),
-        930px 360px rgba(255,255,255,0.8),
-        520px 360px rgba(255,240,230,0.85),
-        200px 460px rgba(255,255,255,0.8);
+        930px 360px rgba(255,255,255,0.8);
       animation: twinkleB 4.6s ease-in-out infinite;
     }
-
-    /* tiny distant specks */
     .sparkles3::before {
       content: "";
       position: fixed;
       top: 0;
       left: -20px;
-      width: 3px;
-      height: 3px;
+      width: 3px; height: 3px;
       border-radius: 999px;
       background: rgba(255,244,236,0.85);
       filter: drop-shadow(0 0 6px rgba(255,244,236,0.8));
@@ -112,18 +96,17 @@
         920px 520px rgba(255,244,236,0.85);
       animation: twinkleC 5.6s ease-in-out infinite;
     }
-
     @keyframes twinkleA {
       0%,100% { opacity: .35; transform: scale(1); }
-      50%     { opacity: 1;   transform: scale(1.35); }
+      50% { opacity: 1; transform: scale(1.35); }
     }
     @keyframes twinkleB {
       0%,100% { opacity: .25; transform: scale(1); }
-      50%     { opacity: .9;  transform: scale(1.25); }
+      50% { opacity: .9; transform: scale(1.25); }
     }
     @keyframes twinkleC {
-      0%,100% { opacity: .2;  transform: scale(1); }
-      50%     { opacity: .7;  transform: scale(1.15); }
+      0%,100% { opacity: .2; transform: scale(1); }
+      50% { opacity: .7; transform: scale(1.15); }
     }
 
     /* film layer */
@@ -143,9 +126,10 @@
       top: 0;
       z-index: 10;
       backdrop-filter: blur(18px);
-      background: rgba(244, 210, 200, 0.9);
+      background: rgba(244,210,200,0.9);
       border-bottom: 1px solid rgba(201,138,111,0.12);
     }
+
     .nav {
       max-width: var(--max);
       margin: 0 auto;
@@ -154,19 +138,23 @@
       justify-content: space-between;
       padding: 0.8rem 1.25rem;
     }
+
     .brand {
       font-family: 'Playfair Display', serif;
       letter-spacing: .12em;
       font-size: 1.05rem;
+      color: var(--text);
     }
+
     .nav-links { display: flex; gap: 1rem; }
     .nav-links a {
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: rgba(52, 29, 28, 0.6);
+      color: var(--text);
+      opacity: 0.7;
     }
-    .nav-links a:hover { color: #341d1c; }
+    .nav-links a:hover { opacity: 1; }
 
     .hero-wrap {
       background: rgba(255, 244, 239, 0.78);
@@ -189,32 +177,41 @@
       padding: 2.5rem 1.75rem 2.25rem;
       align-items: center;
     }
+
     .hero-text h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 4vw, 3.1rem);
       margin-bottom: .5rem;
+      color: var(--text);
     }
+
     .tagline {
       font-size: 0.62rem;
       letter-spacing: .28em;
       text-transform: uppercase;
-      color: rgba(52, 29, 28, 0.55);
+      color: var(--text);
       margin-bottom: 0.3rem;
     }
+
+    /* the line you wanted back to non-script */
     .tagline-soft {
-      font-family: 'Parisienne', cursive;
-      font-size: 1.1rem;
-      color: rgba(182, 104, 88, 0.82);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text);
       margin-bottom: 1.3rem;
     }
+
     .hero-text p { max-width: 34rem; margin-bottom: 1.2rem; }
+
     .badge {
       background: radial-gradient(circle at top, rgba(201,138,111,0.18), rgba(201,138,111,0));
       border: 1px solid rgba(201,138,111,0.35);
       border-radius: 999px;
       padding: .4rem .9rem;
       font-size: .62rem;
-      color: #341d1c;
+      color: var(--text);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       box-shadow: 0 8px 18px rgba(201,138,111,0.18);
@@ -228,6 +225,7 @@
       min-height: 260px;
       box-shadow: 0 18px 45px rgba(164, 90, 70, 0.25);
     }
+
     .hero-media img {
       width: 100%;
       height: 100%;
@@ -242,18 +240,22 @@
       position: relative;
       z-index: 6;
     }
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.85rem;
       margin-bottom: .25rem;
-      display: inline-block;
+      color: var(--text);
     }
+
     .section-sub {
-      color: rgba(52, 29, 28, 0.6);
+      color: var(--text);
+      opacity: 0.7;
       margin-bottom: 1.25rem;
       max-width: 42rem;
     }
 
+    /* music cards */
     .music-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -278,6 +280,7 @@
     }
     .music-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
+    /* visuals & stills */
     .visuals-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -312,6 +315,7 @@
       letter-spacing: .15em;
     }
 
+    /* contact */
     .contact {
       background: rgba(255, 244, 239, 0.6);
       border-radius: 1.1rem 1.1rem 0 0;
@@ -324,10 +328,12 @@
       flex-wrap: wrap;
       gap: 2rem;
     }
+    .contact a { color: var(--text); }
 
     footer {
       text-align: center;
-      color: rgba(52, 29, 28, 0.35);
+      color: var(--text);
+      opacity: 0.5;
       font-size: .68rem;
       padding: 1rem 0 2rem;
       position: relative;
@@ -338,11 +344,11 @@
       .hero-wrap { margin: 3.5rem .75rem 2rem; }
       .hero { grid-template-columns: 1fr; }
       .hero-media { min-height: 240px; }
+      .contact-content { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <!-- sparkles -->
   <div class="sparkles"></div>
   <div class="sparkles2"></div>
   <div class="sparkles3"></div>
@@ -364,7 +370,7 @@
   <div class="hero-wrap" id="home">
     <main class="hero">
       <div class="hero-text">
-        <div class="tagline">Vintage ethereal pop for the dreamers &amp; the heartbreakers</div>
+        <div class="tagline-soft">VINTAGE ETHEREAL POP FOR THE DREAMERS &amp; THE HEARTBREAKERS</div>
         <h1>Born to Run</h1>
         <p>Jade Uchoa is a South Florida singer-songwriter blending old-Hollywood charm with a modern pop heartbeat. Her music moves between vulnerability and confidence, creating a world that’s dreamy, emotional, and undeniably hers.</p>
         <span class="badge">For press & playlists</span>
@@ -375,6 +381,7 @@
     </main>
   </div>
 
+  <!-- MUSIC -->
   <section id="music">
     <h2 class="section-title">Music</h2>
     <p class="section-sub">Featured single and upcoming releases.</p>
@@ -398,6 +405,7 @@
     </div>
   </section>
 
+  <!-- VISUALS & STILLS -->
   <section id="visuals">
     <h2 class="section-title">Visuals &amp; Stills</h2>
     <p class="section-sub">Selected frames and promo imagery from the Born to Run visual world.</p>
@@ -411,13 +419,15 @@
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
     <h2 class="section-title">About</h2>
     <p class="section-sub">
-      Jade Uchoa makes cinematic pop that’s equal parts vintage glamour and modern grit. Her music blends emotion, sensuality, and self-awareness. Soft around the edges but never fragile. It’s timeless storytelling for the girls who live with their hearts wide open.
+      Jade Uchoa makes cinematic pop that’s equal parts vintage glamour and modern grit. Her music blends emotion, sensuality, and self-awareness.Soft around the edges but never fragile. It’s timeless storytelling for the girls who live with their hearts wide open.
     </p>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2 class="section-title">Contact / Press</h2>
     <div class="contact-content">

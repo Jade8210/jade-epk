@@ -4,23 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jade Uchoa</title>
-
-  <!-- Fonts -->
+  <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --bg: #f5e7e1;
       --panel: rgba(255, 247, 242, 0.55);
       --accent: #c98a6f;
-      --accent-soft: rgba(201, 138, 111, 0.12);
       --text: #341d1c;
-      --muted: rgba(52, 29, 28, 0.65);
       --max: 1080px;
     }
-
     * { box-sizing: border-box; }
 
     body {
@@ -29,45 +24,43 @@
       color: var(--text);
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
-      overflow-x: hidden;
       position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* ✨ Twinkle Sparkles */
-    .star {
+    /* ✨ FULL-PAGE SPARKLE LAYER */
+    body::before {
+      content: "";
       position: fixed;
-      width: 8px;
-      height: 8px;
-      background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.9));
-      border-radius: 50%;
+      inset: 0;
       pointer-events: none;
-      z-index: 5;
-      animation: twinkle 3.5s ease-in-out infinite;
+      /* two sparkle patterns layered */
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.88) 1.3px, rgba(255,255,255,0) 1.3px),
+        radial-gradient(circle, rgba(255,214,201,0.55) 1.4px, rgba(255,214,201,0) 1.4px);
+      background-size: 120px 120px, 180px 180px;
+      background-position: 0 0, 60px 60px;
+      opacity: 0.85;          /* make it visible */
+      animation: sparkleMove 14s linear infinite;
+      z-index: 3;             /* above background, below content shadow */
     }
 
-    .star.s1 { top: 12%; left: 8%; animation-delay: 0s; }
-    .star.s2 { top: 28%; right: 10%; animation-delay: .8s; }
-    .star.s3 { bottom: 18%; left: 15%; animation-delay: 1.6s; }
-    .star.s4 { bottom: 30%; right: 22%; animation-delay: 2.2s; }
-    .star.s5 { top: 50%; left: 45%; animation-delay: 1s; width: 10px; height: 10px; }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.4); }
+    @keyframes sparkleMove {
+      0%   { background-position: 0 0, 60px 60px; }
+      100% { background-position: 120px 140px, 180px 200px; }
     }
 
-    /* Subtle film texture */
+    /* subtle film on top */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background-image: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 0);
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 0);
       background-size: 3px 100%;
-      opacity: 0.4;
-      mix-blend-mode: soft-light;
-      z-index: 2;
+      opacity: 0.45;
+      z-index: 4;
     }
 
     header {
@@ -101,7 +94,7 @@
     .nav-links a:hover { color: #341d1c; }
 
     .hero-wrap {
-      background: rgba(255, 244, 239, 0.65);
+      background: rgba(255, 244, 239, 0.75);
       border: 1px solid rgba(201,138,111,0.15);
       border-radius: 1.6rem;
       max-width: calc(var(--max) + 1.8rem);
@@ -109,7 +102,7 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 18px 40px rgba(164, 90, 70, 0.13);
       position: relative;
-      z-index: 3;
+      z-index: 5; /* above sparkles */
     }
 
     .hero {
@@ -125,10 +118,8 @@
     .hero-text h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 4vw, 3.1rem);
-      letter-spacing: 0.01em;
       margin-bottom: .5rem;
     }
-
     .tagline {
       font-size: 0.62rem;
       letter-spacing: .28em;
@@ -142,9 +133,7 @@
       color: rgba(182, 104, 88, 0.82);
       margin-bottom: 1.3rem;
     }
-
     .hero-text p { max-width: 34rem; margin-bottom: 1.2rem; }
-
     .badge {
       background: radial-gradient(circle at top, rgba(201,138,111,0.18), rgba(201,138,111,0));
       border: 1px solid rgba(201,138,111,0.35);
@@ -170,19 +159,19 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: saturate(0.98);
     }
 
     section {
       max-width: var(--max);
       margin: 0 auto;
       padding: 2rem 1.25rem 0;
+      position: relative;
+      z-index: 5; /* above sparkles */
     }
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.85rem;
       margin-bottom: .25rem;
-      letter-spacing: -0.01em;
       display: inline-block;
     }
     .section-sub {
@@ -220,18 +209,18 @@
       color: rgba(52, 29, 28, 0.35);
       font-size: .68rem;
       padding: 1rem 0 2rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    @media (max-width: 880px) {
+      .hero-wrap { margin: 3.5rem .75rem 2rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-media { min-height: 240px; }
     }
   </style>
 </head>
-
 <body>
-  <!-- ✨ Sparkles -->
-  <div class="star s1"></div>
-  <div class="star s2"></div>
-  <div class="star s3"></div>
-  <div class="star s4"></div>
-  <div class="star s5"></div>
-
   <header>
     <div class="nav">
       <div class="brand">JADE UCHOA</div>
@@ -253,7 +242,6 @@
         <p>Jade Uchoa is a South Florida singer-songwriter blending old-Hollywood charm with a modern pop heartbeat. Her music moves between vulnerability and confidence, creating a world that’s dreamy, emotional, and undeniably hers.</p>
         <span class="badge">For press & playlists</span>
       </div>
-
       <div class="hero-media">
         <img src="Born to Run cover art.png" alt="Jade Uchoa - Born to Run artwork">
       </div>
@@ -263,7 +251,6 @@
   <section id="music">
     <h2 class="section-title">Music</h2>
     <p class="section-sub">Featured single and upcoming releases.</p>
-
     <div class="music-grid">
       <article class="music-card">
         <div class="music-thumb">

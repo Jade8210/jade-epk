@@ -42,77 +42,80 @@
       z-index: 3;
     }
 
-    /* LAYER 1 – bright diamonds, twinkly */
+    /* LAYER 1 – big & bright */
     .sparkle-layer::before,
     .sparkle-layer::after,
     .sparkle-layer span {
       content: "";
       position: fixed;
       top: 0;
-      width: 7px;
-      height: 7px;
-      background: rgba(255,255,255,0.6);
+      width: 8px;
+      height: 8px;
+      background: rgba(255,255,255,0.8);
       transform: rotate(45deg);
       border-radius: 1px;
-      filter: drop-shadow(0 0 14px rgba(255,255,255,0.95));
-      animation: sparkleTwinkleA 5.8s linear infinite;
+      filter: drop-shadow(0 0 15px rgba(255,255,255,1));
+      animation: twinkleA 5.5s ease-in-out infinite;
     }
 
+    /* left */
     .sparkle-layer::before {
       left: 0;
       box-shadow:
-        90px 80px rgba(255,255,255,0.9),
+        90px 80px rgba(255,255,255,0.95),
         180px 260px rgba(255,223,214,0.95),
-        320px 120px rgba(255,248,242,0.9),
-        520px 40px rgba(255,255,255,0.85),
+        320px 120px rgba(255,248,242,0.95),
+        520px 40px rgba(255,255,255,0.9),
         720px 210px rgba(255,245,238,0.9),
-        980px 100px rgba(255,255,255,0.8),
-        60px 420px rgba(255,240,232,0.9),
-        280px 380px rgba(255,255,255,0.8),
-        460px 540px rgba(255,245,239,0.85),
-        700px 480px rgba(255,255,255,0.9),
+        980px 100px rgba(255,255,255,0.9),
+        60px 420px rgba(255,240,232,0.95),
+        280px 380px rgba(255,255,255,0.9),
+        460px 540px rgba(255,245,239,0.9),
+        700px 480px rgba(255,255,255,0.95),
         940px 360px rgba(255,230,220,0.9),
-        1080px 520px rgba(255,255,255,0.85);
+        1080px 520px rgba(255,255,255,0.9);
       animation-delay: 0s;
     }
 
+    /* middle */
     .sparkle-layer::after {
       left: 650px;
       box-shadow:
-        90px 80px rgba(255,255,255,0.9),
+        90px 80px rgba(255,255,255,0.95),
         180px 260px rgba(255,223,214,0.95),
-        320px 120px rgba(255,248,242,0.9),
-        520px 40px rgba(255,255,255,0.85),
+        320px 120px rgba(255,248,242,0.95),
+        520px 40px rgba(255,255,255,0.9),
         720px 210px rgba(255,245,238,0.9),
-        980px 100px rgba(255,255,255,0.8),
-        60px 420px rgba(255,240,232,0.9),
-        280px 380px rgba(255,255,255,0.8),
-        460px 540px rgba(255,245,239,0.85),
-        700px 480px rgba(255,255,255,0.9),
+        980px 100px rgba(255,255,255,0.9),
+        60px 420px rgba(255,240,232,0.95),
+        280px 380px rgba(255,255,255,0.9),
+        460px 540px rgba(255,245,239,0.9),
+        700px 480px rgba(255,255,255,0.95),
         940px 360px rgba(255,230,220,0.9),
-        1080px 520px rgba(255,255,255,0.85);
-      animation-delay: 1.2s;
+        1080px 520px rgba(255,255,255,0.9);
+      animation-delay: 1.1s;
     }
 
+    /* right */
     .sparkle-layer span {
       left: 1300px;
       box-shadow:
-        90px 80px rgba(255,255,255,0.9),
+        90px 80px rgba(255,255,255,0.95),
         180px 260px rgba(255,223,214,0.95),
-        320px 120px rgba(255,248,242,0.9),
-        520px 40px rgba(255,255,255,0.85),
+        320px 120px rgba(255,248,242,0.95),
+        520px 40px rgba(255,255,255,0.9),
         720px 210px rgba(255,245,238,0.9),
-        980px 100px rgba(255,255,255,0.8),
-        60px 420px rgba(255,240,232,0.9),
-        280px 380px rgba(255,255,255,0.8),
-        460px 540px rgba(255,245,239,0.85),
-        700px 480px rgba(255,255,255,0.9),
+        980px 100px rgba(255,255,255,0.9),
+        60px 420px rgba(255,240,232,0.95),
+        280px 380px rgba(255,255,255,0.9),
+        460px 540px rgba(255,245,239,0.9),
+        700px 480px rgba(255,255,255,0.95),
         940px 360px rgba(255,230,220,0.9),
-        1080px 520px rgba(255,255,255,0.85);
-      animation-delay: 2.4s;
+        1080px 520px rgba(255,255,255,0.9);
+      animation-delay: 2.2s;
     }
 
-    /* LAYER 2 – medium twinkles */
+    /* LAYER 2 – medium */
     .sparkle-layer2::before,
     .sparkle-layer2::after,
     .sparkle-layer2 span {
@@ -121,61 +124,61 @@
       top: -20px;
       width: 5px;
       height: 5px;
-      background: rgba(255,244,236,0.75);
+      background: rgba(255,244,236,0.85);
       transform: rotate(45deg);
-      filter: drop-shadow(0 0 10px rgba(255,244,236,0.9));
-      animation: sparkleTwinkleB 6.7s linear infinite;
+      filter: drop-shadow(0 0 12px rgba(255,244,236,1));
+      animation: twinkleB 6.3s ease-in-out infinite;
     }
     .sparkle-layer2::before {
       left: -10px;
       box-shadow:
-        140px 40px rgba(255,244,236,0.9),
-        260px 180px rgba(255,244,236,0.85),
-        420px 70px rgba(255,255,255,0.8),
-        610px 260px rgba(255,255,255,0.85),
-        820px 140px rgba(255,244,236,0.85),
-        990px 240px rgba(255,255,255,0.85),
-        180px 520px rgba(255,244,236,0.85),
-        380px 600px rgba(255,255,255,0.78),
-        560px 460px rgba(255,250,247,0.85),
-        880px 520px rgba(255,244,236,0.9),
-        1030px 430px rgba(255,255,255,0.85);
-      animation-delay: .35s;
+        140px 40px rgba(255,244,236,1),
+        260px 180px rgba(255,244,236,0.95),
+        420px 70px rgba(255,255,255,0.9),
+        610px 260px rgba(255,255,255,0.95),
+        820px 140px rgba(255,244,236,0.95),
+        990px 240px rgba(255,255,255,0.95),
+        180px 520px rgba(255,244,236,0.95),
+        380px 600px rgba(255,255,255,0.9),
+        560px 460px rgba(255,250,247,0.95),
+        880px 520px rgba(255,244,236,0.95),
+        1030px 430px rgba(255,255,255,0.95);
+      animation-delay: .4s;
     }
     .sparkle-layer2::after {
       left: 650px;
       box-shadow:
-        140px 40px rgba(255,244,236,0.9),
-        260px 180px rgba(255,244,236,0.85),
-        420px 70px rgba(255,255,255,0.8),
-        610px 260px rgba(255,255,255,0.85),
-        820px 140px rgba(255,244,236,0.85),
-        990px 240px rgba(255,255,255,0.85),
-        180px 520px rgba(255,244,236,0.85),
-        380px 600px rgba(255,255,255,0.78),
-        560px 460px rgba(255,250,247,0.85),
-        880px 520px rgba(255,244,236,0.9),
-        1030px 430px rgba(255,255,255,0.85);
+        140px 40px rgba(255,244,236,1),
+        260px 180px rgba(255,244,236,0.95),
+        420px 70px rgba(255,255,255,0.9),
+        610px 260px rgba(255,255,255,0.95),
+        820px 140px rgba(255,244,236,0.95),
+        990px 240px rgba(255,255,255,0.95),
+        180px 520px rgba(255,244,236,0.95),
+        380px 600px rgba(255,255,255,0.9),
+        560px 460px rgba(255,250,247,0.95),
+        880px 520px rgba(255,244,236,0.95),
+        1030px 430px rgba(255,255,255,0.95);
       animation-delay: 1.6s;
     }
     .sparkle-layer2 span {
       left: 1300px;
       box-shadow:
-        140px 40px rgba(255,244,236,0.9),
-        260px 180px rgba(255,244,236,0.85),
-        420px 70px rgba(255,255,255,0.8),
-        610px 260px rgba(255,255,255,0.85),
-        820px 140px rgba(255,244,236,0.85),
-        990px 240px rgba(255,255,255,0.85),
-        180px 520px rgba(255,244,236,0.85),
-        380px 600px rgba(255,255,255,0.78),
-        560px 460px rgba(255,250,247,0.85),
-        880px 520px rgba(255,244,236,0.9),
-        1030px 430px rgba(255,255,255,0.85);
+        140px 40px rgba(255,244,236,1),
+        260px 180px rgba(255,244,236,0.95),
+        420px 70px rgba(255,255,255,0.9),
+        610px 260px rgba(255,255,255,0.95),
+        820px 140px rgba(255,244,236,0.95),
+        990px 240px rgba(255,255,255,0.95),
+        180px 520px rgba(255,244,236,0.95),
+        380px 600px rgba(255,255,255,0.9),
+        560px 460px rgba(255,250,247,0.95),
+        880px 520px rgba(255,244,236,0.95),
+        1030px 430px rgba(255,255,255,0.95);
       animation-delay: 2.5s;
     }
 
-    /* LAYER 3 – tiny glitter */
+    /* LAYER 3 – tiny glints */
     .sparkle-layer3::before,
     .sparkle-layer3::after,
     .sparkle-layer3 span {
@@ -184,89 +187,78 @@
       top: 0;
       width: 3px;
       height: 3px;
-      background: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.55);
       transform: rotate(45deg);
-      filter: drop-shadow(0 0 5px rgba(255,255,255,0.65));
-      animation: sparkleTwinkleC 8s linear infinite;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.85));
+      animation: twinkleC 7.5s ease-in-out infinite;
     }
     .sparkle-layer3::before {
       left: -20px;
       box-shadow:
-        60px 140px rgba(255,255,255,0.6),
-        210px 90px rgba(255,255,255,0.48),
-        350px 230px rgba(255,255,255,0.55),
-        480px 160px rgba(255,255,255,0.55),
-        640px 320px rgba(255,255,255,0.6),
-        820px 50px rgba(255,255,255,0.55),
-        950px 190px rgba(255,255,255,0.5),
-        1130px 260px rgba(255,255,255,0.5),
-        310px 520px rgba(255,255,255,0.45),
-        540px 610px rgba(255,255,255,0.5),
-        760px 560px rgba(255,255,255,0.6);
-      animation-delay: .5s;
+        60px 140px rgba(255,255,255,0.8),
+        210px 90px rgba(255,255,255,0.55),
+        350px 230px rgba(255,255,255,0.65),
+        480px 160px rgba(255,255,255,0.6),
+        640px 320px rgba(255,255,255,0.7),
+        820px 50px rgba(255,255,255,0.6),
+        950px 190px rgba(255,255,255,0.55),
+        1130px 260px rgba(255,255,255,0.55),
+        310px 520px rgba(255,255,255,0.5),
+        540px 610px rgba(255,255,255,0.55),
+        760px 560px rgba(255,255,255,0.65);
+      animation-delay: .6s;
     }
     .sparkle-layer3::after {
       left: 650px;
       box-shadow:
-        60px 140px rgba(255,255,255,0.6),
-        210px 90px rgba(255,255,255,0.48),
-        350px 230px rgba(255,255,255,0.55),
-        480px 160px rgba(255,255,255,0.55),
-        640px 320px rgba(255,255,255,0.6),
-        820px 50px rgba(255,255,255,0.55),
-        950px 190px rgba(255,255,255,0.5),
-        1130px 260px rgba(255,255,255,0.5),
-        310px 520px rgba(255,255,255,0.45),
-        540px 610px rgba(255,255,255,0.5),
-        760px 560px rgba(255,255,255,0.6);
-      animation-delay: 1.35s;
+        60px 140px rgba(255,255,255,0.8),
+        210px 90px rgba(255,255,255,0.55),
+        350px 230px rgba(255,255,255,0.65),
+        480px 160px rgba(255,255,255,0.6),
+        640px 320px rgba(255,255,255,0.7),
+        820px 50px rgba(255,255,255,0.6),
+        950px 190px rgba(255,255,255,0.55),
+        1130px 260px rgba(255,255,255,0.55),
+        310px 520px rgba(255,255,255,0.5),
+        540px 610px rgba(255,255,255,0.55),
+        760px 560px rgba(255,255,255,0.65);
+      animation-delay: 1.5s;
     }
     .sparkle-layer3 span {
       left: 1300px;
       box-shadow:
-        60px 140px rgba(255,255,255,0.6),
-        210px 90px rgba(255,255,255,0.48),
-        350px 230px rgba(255,255,255,0.55),
-        480px 160px rgba(255,255,255,0.55),
-        640px 320px rgba(255,255,255,0.6),
-        820px 50px rgba(255,255,255,0.55),
-        950px 190px rgba(255,255,255,0.5),
-        1130px 260px rgba(255,255,255,0.5),
-        310px 520px rgba(255,255,255,0.45),
-        540px 610px rgba(255,255,255,0.5),
-        760px 560px rgba(255,255,255,0.6);
-      animation-delay: 2.1s;
+        60px 140px rgba(255,255,255,0.8),
+        210px 90px rgba(255,255,255,0.55),
+        350px 230px rgba(255,255,255,0.65),
+        480px 160px rgba(255,255,255,0.6),
+        640px 320px rgba(255,255,255,0.7),
+        820px 50px rgba(255,255,255,0.6),
+        950px 190px rgba(255,255,255,0.55),
+        1130px 260px rgba(255,255,255,0.55),
+        310px 520px rgba(255,255,255,0.5),
+        540px 610px rgba(255,255,255,0.55),
+        760px 560px rgba(255,255,255,0.65);
+      animation-delay: 2.2s;
     }
 
-    /* ✨ twinkle keyframes: short bright peaks */
-    @keyframes sparkleTwinkleA {
-      0%, 10%   { opacity: 0.12; transform: rotate(45deg) scale(1); }
-      12%       { opacity: 1;    transform: rotate(45deg) scale(1.4); }
-      16%       { opacity: 0.25; transform: rotate(45deg) scale(1); }
-      45%       { opacity: 0.15; }
-      47%       { opacity: .85;  transform: rotate(45deg) scale(1.25); }
-      52%       { opacity: 0.18; }
+    /* ✨ smoother, single twinkle per cycle */
+    @keyframes twinkleA {
+      0%, 12%   { opacity: 0.12; transform: rotate(45deg) scale(1); }
+      15%       { opacity: 1;    transform: rotate(45deg) scale(1.45); }
+      22%       { opacity: 0.2;  transform: rotate(45deg) scale(1); }
       100%      { opacity: 0.12; }
     }
-
-    @keyframes sparkleTwinkleB {
-      0%, 8%    { opacity: 0.05; transform: rotate(45deg) scale(1); }
-      10%       { opacity: 0.8;  transform: rotate(45deg) scale(1.25); }
-      14%       { opacity: 0.25; }
-      38%       { opacity: 0.1; }
-      40%       { opacity: .9;  transform: rotate(45deg) scale(1.18); }
-      44%       { opacity: 0.14; }
-      100%      { opacity: 0.05; }
+    @keyframes twinkleB {
+      0%, 14%   { opacity: 0.08; transform: rotate(45deg) scale(1); }
+      17%       { opacity: 0.9;  transform: rotate(45deg) scale(1.25); }
+      23%       { opacity: 0.16; }
+      100%      { opacity: 0.08; }
     }
-
-    @keyframes sparkleTwinkleC {
-      0%, 15%   { opacity: 0.03; transform: rotate(45deg) scale(1); }
-      17%       { opacity: .55;  transform: rotate(45deg) scale(1.15); }
-      22%       { opacity: 0.05; }
-      60%       { opacity: 0.04; }
-      63%       { opacity: .4; }
-      70%       { opacity: 0.05; }
-      100%      { opacity: 0.03; }
+    @keyframes twinkleC {
+      0%, 18%   { opacity: 0.05; transform: rotate(45deg) scale(1); }
+      21%       { opacity: 0.6;  transform: rotate(45deg) scale(1.12); }
+      28%       { opacity: 0.08; }
+      100%      { opacity: 0.05; }
     }
 
     /* film + grain */

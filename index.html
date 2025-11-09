@@ -30,30 +30,30 @@
     }
     a { color: inherit; text-decoration: none; }
 
-    /* ✧ visible sparkly dust layer */
+    /* ✧ sparkle layer (now above background) */
     .sparkle-layer {
       position: fixed;
       inset: 0;
       pointer-events: none;
       background-image:
-        radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,210,196,0.25) 1.2px, transparent 1.2px);
-      background-size: 180px 180px, 260px 260px;
+        radial-gradient(circle, rgba(255,255,255,0.6) 1.4px, transparent 1.4px),
+        radial-gradient(circle, rgba(255,210,196,0.45) 1.6px, transparent 1.6px);
+      background-size: 140px 140px, 220px 220px;
       background-position: 0 0, 60px 40px;
-      opacity: 0.5;
-      z-index: 0;
+      opacity: 0.75;
       mix-blend-mode: screen;
+      z-index: 1;
     }
-    /* ✧ grain / film on top */
+    /* ✧ soft film lines */
     .film-layer {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background-image: linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 0);
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 0);
       background-size: 3px 100%;
       opacity: 0.45;
-      z-index: 0;
       mix-blend-mode: soft-light;
+      z-index: 1;
     }
 
     header,
@@ -61,7 +61,7 @@
     section,
     footer {
       position: relative;
-      z-index: 2; /* makes content above overlays */
+      z-index: 2; /* content stays on top of sparkles */
     }
 
     header {
@@ -133,7 +133,7 @@
       margin-bottom: .5rem;
     }
 
-    /* ✧ this is the tagline line — now with script accent BELOW it */
+    /* tagline + script line */
     .tagline {
       font-size: 0.62rem;
       letter-spacing: .28em;
@@ -352,7 +352,7 @@
   <div class="hero-wrap" id="home">
     <main class="hero">
       <div class="hero-text">
-        <div class="tagline-soft">Vintage ethereal for the dreamers & the heartbreakers</div>
+        <div class="tagline-soft">Vintage ethereal pop for the dreamers &amp; the heartbreakers</div>
         <h1>Born to Run</h1>
         <p>Jade Uchoa is a South Florida singer-songwriter blending old-Hollywood charm with a modern pop heartbeat. Her music moves between vulnerability and confidence, creating a world that’s dreamy, emotional, and undeniably hers.</p>
         <div class="badges"><span class="badge">For press & playlists</span></div>
@@ -394,11 +394,9 @@
     <div class="visuals-grid">
       <div class="visual-item">
         <img src="phone-still.png" alt="Jade on telephone">
-        <span class="visual-label">Born to Run still</span>
       </div>
       <div class="visual-item">
         <img src="close-up-still.png" alt="Cinematic closeup">
-        <span class="visual-label">Cinematic closeup</span>
       </div>
     </div>
   </section>

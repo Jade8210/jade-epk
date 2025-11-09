@@ -13,7 +13,7 @@
   <style>
     :root {
       --bg: #f5e7e1;
-      --text: #b86a5a; /* rosy main text */
+      --text: #b86a5a;
       --max: 1080px;
     }
     * { box-sizing: border-box; }
@@ -29,98 +29,145 @@
       overflow-x: hidden;
     }
 
-    /* ✨ static twinkly sparkles (3 layers) */
-    .sparkles, .sparkles2, .sparkles3 {
+    /* ===========================
+       ✨ MAGIC SPARKLE SYSTEM
+       =========================== */
+    /* we use 3 layered fields, all fixed, all diamonds, all breathing only */
+    .sparkle-layer,
+    .sparkle-layer2,
+    .sparkle-layer3 {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 3;
     }
-    .sparkles::before {
-      content: "";
-      position: fixed;
-      top: -40px;
-      left: -40px;
-      width: 6px; height: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.95);
-      filter: drop-shadow(0 0 10px rgba(255,255,255,0.85));
-      box-shadow:
-        120px 90px rgba(255,255,255,0.95),
-        360px 140px rgba(255,214,204,0.95),
-        680px 60px rgba(255,245,240,0.95),
-        940px 200px rgba(255,255,255,0.95),
-        150px 360px rgba(255,224,212,0.95),
-        420px 420px rgba(255,255,255,0.9),
-        820px 360px rgba(255,234,225,0.95),
-        1050px 520px rgba(255,255,255,0.9);
-      animation: twinkleA 3.8s ease-in-out infinite;
-    }
-    .sparkles2::before {
-      content: "";
-      position: fixed;
-      top: -30px;
-      left: 0;
-      width: 4px; height: 4px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.75);
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.7));
-      box-shadow:
-        80px 200px rgba(255,255,255,0.85),
-        280px 40px rgba(255,236,226,0.85),
-        520px 180px rgba(255,255,255,0.85),
-        740px 100px rgba(255,245,237,0.9),
-        980px 300px rgba(255,255,255,0.8),
-        360px 520px rgba(255,236,225,0.85),
-        690px 500px rgba(255,255,255,0.85),
-        930px 360px rgba(255,255,255,0.8);
-      animation: twinkleB 4.6s ease-in-out infinite;
-    }
-    .sparkles3::before {
+
+    /* base diamond shape: 1 element + lots of box-shadows */
+    .sparkle-layer::before {
       content: "";
       position: fixed;
       top: 0;
-      left: -20px;
-      width: 3px; height: 3px;
-      border-radius: 999px;
-      background: rgba(255,244,236,0.85);
-      filter: drop-shadow(0 0 6px rgba(255,244,236,0.8));
+      left: 0;
+      width: 7px;
+      height: 7px;
+      background: rgba(255,255,255,0.7);
+      transform: rotate(45deg);
+      border-radius: 1px;
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.8));
+      /* many sparkles scattered */
       box-shadow:
-        160px 40px rgba(255,244,236,0.85),
-        460px 110px rgba(255,244,236,0.7),
-        860px 40px rgba(255,255,255,0.85),
-        1060px 180px rgba(255,250,246,0.8),
-        60px 360px rgba(255,244,236,0.9),
-        280px 620px rgba(255,255,255,0.7),
-        640px 560px rgba(255,255,255,0.8),
-        920px 520px rgba(255,244,236,0.85);
-      animation: twinkleC 5.6s ease-in-out infinite;
-    }
-    @keyframes twinkleA {
-      0%,100% { opacity: .35; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.35); }
-    }
-    @keyframes twinkleB {
-      0%,100% { opacity: .25; transform: scale(1); }
-      50% { opacity: .9; transform: scale(1.25); }
-    }
-    @keyframes twinkleC {
-      0%,100% { opacity: .2; transform: scale(1); }
-      50% { opacity: .7; transform: scale(1.15); }
+        90px 80px rgba(255,255,255,0.9),
+        180px 260px rgba(255,223,214,0.95),
+        320px 120px rgba(255,248,242,0.9),
+        520px 40px rgba(255,255,255,0.85),
+        720px 210px rgba(255,245,238,0.9),
+        980px 100px rgba(255,255,255,0.8),
+        60px 420px rgba(255,240,232,0.9),
+        280px 380px rgba(255,255,255,0.8),
+        460px 540px rgba(255,245,239,0.85),
+        700px 480px rgba(255,255,255,0.9),
+        940px 360px rgba(255,230,220,0.9),
+        1080px 520px rgba(255,255,255,0.85);
+      animation: sparklePulseA 6s ease-in-out infinite;
     }
 
-    /* film layer */
-    .film-layer {
+    .sparkle-layer2::before {
+      content: "";
+      position: fixed;
+      top: -20px;
+      left: -10px;
+      width: 5px;
+      height: 5px;
+      background: rgba(255,244,236,0.85);
+      transform: rotate(45deg);
+      filter: drop-shadow(0 0 10px rgba(255,244,236,0.7));
+      box-shadow:
+        140px 40px rgba(255,244,236,0.9),
+        260px 180px rgba(255,244,236,0.85),
+        420px 70px rgba(255,255,255,0.8),
+        610px 260px rgba(255,255,255,0.85),
+        820px 140px rgba(255,244,236,0.85),
+        990px 240px rgba(255,255,255,0.85),
+        180px 520px rgba(255,244,236,0.85),
+        380px 600px rgba(255,255,255,0.78),
+        560px 460px rgba(255,250,247,0.85),
+        880px 520px rgba(255,244,236,0.9),
+        1030px 430px rgba(255,255,255,0.85);
+      animation: sparklePulseB 7.5s ease-in-out infinite;
+    }
+
+    .sparkle-layer3::before {
+      content: "";
+      position: fixed;
+      top: -30px;
+      left: -30px;
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,0.5);
+      transform: rotate(45deg);
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.55));
+      box-shadow:
+        60px 140px rgba(255,255,255,0.6),
+        210px 90px rgba(255,255,255,0.48),
+        350px 230px rgba(255,255,255,0.55),
+        480px 160px rgba(255,255,255,0.55),
+        640px 320px rgba(255,255,255,0.6),
+        820px 50px rgba(255,255,255,0.55),
+        950px 190px rgba(255,255,255,0.5),
+        1130px 260px rgba(255,255,255,0.5),
+        310px 520px rgba(255,255,255,0.45),
+        540px 610px rgba(255,255,255,0.5),
+        760px 560px rgba(255,255,255,0.6);
+      animation: sparklePulseC 9s ease-in-out infinite;
+    }
+
+    @keyframes sparklePulseA {
+      0%, 100% { opacity: 0.45; transform: rotate(45deg) scale(1); }
+      50%      { opacity: 1;    transform: rotate(45deg) scale(1.35); }
+    }
+    @keyframes sparklePulseB {
+      0%, 100% { opacity: 0.25; transform: rotate(45deg) scale(1); }
+      50%      { opacity: 0.85; transform: rotate(45deg) scale(1.25); }
+    }
+    @keyframes sparklePulseC {
+      0%, 100% { opacity: 0.2; transform: rotate(45deg) scale(1); }
+      50%      { opacity: 0.6; transform: rotate(45deg) scale(1.15); }
+    }
+
+    /* ===========================
+       🎞 Film + grain overlay
+       =========================== */
+    .film-lines {
       position: fixed;
       inset: 0;
       pointer-events: none;
       background-image: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 0);
       background-size: 3px 100%;
-      opacity: 0.42;
+      opacity: 0.35;
       mix-blend-mode: soft-light;
       z-index: 4;
     }
+    .grain-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px),
+        radial-gradient(circle, rgba(253,240,234,0.08) 1px, transparent 1px);
+      background-size: 180px 180px, 120px 120px;
+      mix-blend-mode: soft-light;
+      opacity: 0.22;
+      animation: grainMove 18s linear infinite;
+      z-index: 5;
+    }
+    @keyframes grainMove {
+      0%   { background-position: 0 0, 0 0; }
+      100% { background-position: 180px 240px, -120px 180px; }
+    }
 
+    /* ===========================
+       NAV + HERO + Sections
+       =========================== */
     header {
       position: sticky;
       top: 0;
@@ -129,7 +176,6 @@
       background: rgba(244,210,200,0.9);
       border-bottom: 1px solid rgba(201,138,111,0.12);
     }
-
     .nav {
       max-width: var(--max);
       margin: 0 auto;
@@ -138,21 +184,19 @@
       justify-content: space-between;
       padding: 0.8rem 1.25rem;
     }
-
     .brand {
       font-family: 'Playfair Display', serif;
       letter-spacing: .12em;
       font-size: 1.05rem;
       color: var(--text);
     }
-
     .nav-links { display: flex; gap: 1rem; }
     .nav-links a {
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text);
-      opacity: 0.7;
+      opacity: 0.75;
     }
     .nav-links a:hover { opacity: 1; }
 
@@ -167,7 +211,6 @@
       position: relative;
       z-index: 6;
     }
-
     .hero {
       max-width: var(--max);
       margin: 0 auto;
@@ -177,14 +220,12 @@
       padding: 2.5rem 1.75rem 2.25rem;
       align-items: center;
     }
-
     .hero-text h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 4vw, 3.1rem);
       margin-bottom: .5rem;
       color: var(--text);
     }
-
     .tagline {
       font-size: 0.62rem;
       letter-spacing: .28em;
@@ -192,8 +233,6 @@
       color: var(--text);
       margin-bottom: 0.3rem;
     }
-
-    /* the line you wanted back to non-script */
     .tagline-soft {
       font-family: 'Inter', sans-serif;
       font-size: 0.65rem;
@@ -202,7 +241,6 @@
       color: var(--text);
       margin-bottom: 1.3rem;
     }
-
     .hero-text p { max-width: 34rem; margin-bottom: 1.2rem; }
 
     .badge {
@@ -225,7 +263,6 @@
       min-height: 260px;
       box-shadow: 0 18px 45px rgba(164, 90, 70, 0.25);
     }
-
     .hero-media img {
       width: 100%;
       height: 100%;
@@ -240,14 +277,12 @@
       position: relative;
       z-index: 6;
     }
-
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.85rem;
       margin-bottom: .25rem;
       color: var(--text);
     }
-
     .section-sub {
       color: var(--text);
       opacity: 0.7;
@@ -255,7 +290,7 @@
       max-width: 42rem;
     }
 
-    /* music cards */
+    /* MUSIC */
     .music-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -280,7 +315,7 @@
     }
     .music-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* visuals & stills */
+    /* VISUALS */
     .visuals-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -301,6 +336,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
     .visual-label {
       position: absolute;
@@ -315,7 +351,7 @@
       letter-spacing: .15em;
     }
 
-    /* contact */
+    /* CONTACT */
     .contact {
       background: rgba(255, 244, 239, 0.6);
       border-radius: 1.1rem 1.1rem 0 0;
@@ -349,10 +385,12 @@
   </style>
 </head>
 <body>
-  <div class="sparkles"></div>
-  <div class="sparkles2"></div>
-  <div class="sparkles3"></div>
-  <div class="film-layer"></div>
+  <!-- sparkle + film + grain -->
+  <div class="sparkle-layer"></div>
+  <div class="sparkle-layer2"></div>
+  <div class="sparkle-layer3"></div>
+  <div class="film-lines"></div>
+  <div class="grain-layer"></div>
 
   <header>
     <div class="nav">
@@ -423,7 +461,7 @@
   <section id="about">
     <h2 class="section-title">About</h2>
     <p class="section-sub">
-      Jade Uchoa makes cinematic pop that’s equal parts vintage glamour and modern grit. Her music blends emotion, sensuality, and self-awareness.Soft around the edges but never fragile. It’s timeless storytelling for the girls who live with their hearts wide open.
+      Jade Uchoa makes cinematic pop that’s equal parts vintage glamour and modern grit. Her music blends emotion, sensuality, and self-awareness. Soft around the edges but never fragile. It’s timeless storytelling for the girls who live with their hearts wide open.
     </p>
   </section>
 

@@ -30,7 +30,7 @@
     }
 
     /* ===========================
-       ✨ SUPER-WIDE MAGIC SPARKLES
+       ✨ SUPER-WIDE TWINKLE SPARKLES
        3 panels per layer: 0, 650, 1300
        =========================== */
     .sparkle-layer,
@@ -42,7 +42,7 @@
       z-index: 3;
     }
 
-    /* LAYER 1 – big bright diamonds */
+    /* LAYER 1 – bright diamonds, twinkly */
     .sparkle-layer::before,
     .sparkle-layer::after,
     .sparkle-layer span {
@@ -51,14 +51,13 @@
       top: 0;
       width: 7px;
       height: 7px;
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.6);
       transform: rotate(45deg);
       border-radius: 1px;
-      filter: drop-shadow(0 0 12px rgba(255,255,255,0.85));
-      animation: sparklePulseA 6s ease-in-out infinite;
+      filter: drop-shadow(0 0 14px rgba(255,255,255,0.95));
+      animation: sparkleTwinkleA 5.8s linear infinite;
     }
 
-    /* left panel */
     .sparkle-layer::before {
       left: 0;
       box-shadow:
@@ -74,9 +73,9 @@
         700px 480px rgba(255,255,255,0.9),
         940px 360px rgba(255,230,220,0.9),
         1080px 520px rgba(255,255,255,0.85);
+      animation-delay: 0s;
     }
 
-    /* middle panel */
     .sparkle-layer::after {
       left: 650px;
       box-shadow:
@@ -92,9 +91,9 @@
         700px 480px rgba(255,255,255,0.9),
         940px 360px rgba(255,230,220,0.9),
         1080px 520px rgba(255,255,255,0.85);
+      animation-delay: 1.2s;
     }
 
-    /* right panel */
     .sparkle-layer span {
       left: 1300px;
       box-shadow:
@@ -110,9 +109,10 @@
         700px 480px rgba(255,255,255,0.9),
         940px 360px rgba(255,230,220,0.9),
         1080px 520px rgba(255,255,255,0.85);
+      animation-delay: 2.4s;
     }
 
-    /* LAYER 2 – medium diamonds */
+    /* LAYER 2 – medium twinkles */
     .sparkle-layer2::before,
     .sparkle-layer2::after,
     .sparkle-layer2 span {
@@ -121,10 +121,10 @@
       top: -20px;
       width: 5px;
       height: 5px;
-      background: rgba(255,244,236,0.85);
+      background: rgba(255,244,236,0.75);
       transform: rotate(45deg);
-      filter: drop-shadow(0 0 10px rgba(255,244,236,0.7));
-      animation: sparklePulseB 7.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px rgba(255,244,236,0.9));
+      animation: sparkleTwinkleB 6.7s linear infinite;
     }
     .sparkle-layer2::before {
       left: -10px;
@@ -140,6 +140,7 @@
         560px 460px rgba(255,250,247,0.85),
         880px 520px rgba(255,244,236,0.9),
         1030px 430px rgba(255,255,255,0.85);
+      animation-delay: .35s;
     }
     .sparkle-layer2::after {
       left: 650px;
@@ -155,6 +156,7 @@
         560px 460px rgba(255,250,247,0.85),
         880px 520px rgba(255,244,236,0.9),
         1030px 430px rgba(255,255,255,0.85);
+      animation-delay: 1.6s;
     }
     .sparkle-layer2 span {
       left: 1300px;
@@ -170,9 +172,10 @@
         560px 460px rgba(255,250,247,0.85),
         880px 520px rgba(255,244,236,0.9),
         1030px 430px rgba(255,255,255,0.85);
+      animation-delay: 2.5s;
     }
 
-    /* LAYER 3 – tiny distant sparkles */
+    /* LAYER 3 – tiny glitter */
     .sparkle-layer3::before,
     .sparkle-layer3::after,
     .sparkle-layer3 span {
@@ -181,10 +184,10 @@
       top: 0;
       width: 3px;
       height: 3px;
-      background: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.45);
       transform: rotate(45deg);
-      filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
-      animation: sparklePulseC 9s ease-in-out infinite;
+      filter: drop-shadow(0 0 5px rgba(255,255,255,0.65));
+      animation: sparkleTwinkleC 8s linear infinite;
     }
     .sparkle-layer3::before {
       left: -20px;
@@ -200,6 +203,7 @@
         310px 520px rgba(255,255,255,0.45),
         540px 610px rgba(255,255,255,0.5),
         760px 560px rgba(255,255,255,0.6);
+      animation-delay: .5s;
     }
     .sparkle-layer3::after {
       left: 650px;
@@ -215,6 +219,7 @@
         310px 520px rgba(255,255,255,0.45),
         540px 610px rgba(255,255,255,0.5),
         760px 560px rgba(255,255,255,0.6);
+      animation-delay: 1.35s;
     }
     .sparkle-layer3 span {
       left: 1300px;
@@ -230,19 +235,38 @@
         310px 520px rgba(255,255,255,0.45),
         540px 610px rgba(255,255,255,0.5),
         760px 560px rgba(255,255,255,0.6);
+      animation-delay: 2.1s;
     }
 
-    @keyframes sparklePulseA {
-      0%, 100% { opacity: 0.45; transform: rotate(45deg) scale(1); }
-      50%      { opacity: 1;    transform: rotate(45deg) scale(1.35); }
+    /* ✨ twinkle keyframes: short bright peaks */
+    @keyframes sparkleTwinkleA {
+      0%, 10%   { opacity: 0.12; transform: rotate(45deg) scale(1); }
+      12%       { opacity: 1;    transform: rotate(45deg) scale(1.4); }
+      16%       { opacity: 0.25; transform: rotate(45deg) scale(1); }
+      45%       { opacity: 0.15; }
+      47%       { opacity: .85;  transform: rotate(45deg) scale(1.25); }
+      52%       { opacity: 0.18; }
+      100%      { opacity: 0.12; }
     }
-    @keyframes sparklePulseB {
-      0%, 100% { opacity: 0.25; transform: rotate(45deg) scale(1); }
-      50%      { opacity: 0.85; transform: rotate(45deg) scale(1.25); }
+
+    @keyframes sparkleTwinkleB {
+      0%, 8%    { opacity: 0.05; transform: rotate(45deg) scale(1); }
+      10%       { opacity: 0.8;  transform: rotate(45deg) scale(1.25); }
+      14%       { opacity: 0.25; }
+      38%       { opacity: 0.1; }
+      40%       { opacity: .9;  transform: rotate(45deg) scale(1.18); }
+      44%       { opacity: 0.14; }
+      100%      { opacity: 0.05; }
     }
-    @keyframes sparklePulseC {
-      0%, 100% { opacity: 0.2; transform: rotate(45deg) scale(1); }
-      50%      { opacity: 0.6; transform: rotate(45deg) scale(1.15); }
+
+    @keyframes sparkleTwinkleC {
+      0%, 15%   { opacity: 0.03; transform: rotate(45deg) scale(1); }
+      17%       { opacity: .55;  transform: rotate(45deg) scale(1.15); }
+      22%       { opacity: 0.05; }
+      60%       { opacity: 0.04; }
+      63%       { opacity: .4; }
+      70%       { opacity: 0.05; }
+      100%      { opacity: 0.03; }
     }
 
     /* film + grain */
@@ -274,9 +298,6 @@
       100% { background-position: 180px 240px, -120px 180px; }
     }
 
-    /* ===========================
-       SITE LAYOUT
-       =========================== */
     header {
       position: sticky;
       top: 0;

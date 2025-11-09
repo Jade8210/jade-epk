@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jade Uchoa – EPK</title>
+  <title>Jade Uchoa</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,238 +30,238 @@
     }
 
     /* ===========================
-       ✨ SPARKLES (STATIONARY TWINKLE)
-       three wide columns (0, 650, 1300) so the right side has sparkle too
+       ✨ SPARKLES – NO MOVEMENT
+       (they scroll with the page, only opacity twinkles)
        =========================== */
     .sparkle-layer,
     .sparkle-layer2,
     .sparkle-layer3 {
-      position: fixed;
-      inset: 0;
+      position: absolute; /* was fixed */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0; /* we just paint sparkles with box-shadows */
       pointer-events: none;
-      z-index: 3;
+      z-index: 1;
     }
 
-    /* LAYER 1 – bigger diamonds, bright flash */
+    /* LAYER 1 */
     .sparkle-layer::before,
     .sparkle-layer::after,
     .sparkle-layer span {
       content: "";
-      position: fixed;
+      position: absolute;
       top: 0;
       width: 8px;
       height: 8px;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.85);
       transform: rotate(45deg);
       border-radius: 1px;
       filter: drop-shadow(0 0 16px rgba(255,255,255,1));
-      animation: twinkleA 6.4s ease-in-out infinite;
+      animation: twinkleA 6.2s ease-in-out infinite;
     }
 
-    /* left column */
     .sparkle-layer::before {
       left: 0;
       box-shadow:
-        80px 80px rgba(255,255,255,0.95),
-        180px 240px rgba(255,223,214,0.95),
-        330px 120px rgba(255,248,242,0.95),
-        520px 40px rgba(255,255,255,0.9),
-        720px 210px rgba(255,245,238,0.9),
-        980px 100px rgba(255,255,255,0.9),
-        60px 420px rgba(255,240,232,0.95),
-        280px 380px rgba(255,255,255,0.9),
-        460px 520px rgba(255,245,239,0.9),
-        700px 480px rgba(255,255,255,0.95),
-        920px 360px rgba(255,230,220,0.9),
-        1080px 540px rgba(255,255,255,0.9);
+        80px 80px rgba(255,255,255,1),
+        180px 240px rgba(255,223,214,1),
+        330px 120px rgba(255,248,242,1),
+        520px 40px rgba(255,255,255,1),
+        720px 210px rgba(255,245,238,1),
+        980px 100px rgba(255,255,255,1),
+        60px 420px rgba(255,240,232,1),
+        280px 380px rgba(255,255,255,1),
+        460px 520px rgba(255,245,239,1),
+        700px 480px rgba(255,255,255,1),
+        920px 360px rgba(255,230,220,1),
+        1080px 540px rgba(255,255,255,1);
       animation-delay: .2s;
     }
 
-    /* middle column */
     .sparkle-layer::after {
       left: 650px;
       box-shadow:
         90px 60px rgba(255,255,255,1),
-        180px 230px rgba(255,223,214,0.95),
-        320px 110px rgba(255,248,242,0.95),
-        520px 50px rgba(255,255,255,0.9),
-        700px 230px rgba(255,245,238,0.9),
-        950px 120px rgba(255,255,255,0.9),
-        40px 430px rgba(255,240,232,0.95),
-        250px 400px rgba(255,255,255,0.9),
-        460px 510px rgba(255,245,239,0.9),
-        700px 480px rgba(255,255,255,0.95),
-        940px 350px rgba(255,230,220,0.9),
-        1080px 520px rgba(255,255,255,0.9);
-      animation-delay: 1s;
+        180px 230px rgba(255,223,214,1),
+        320px 110px rgba(255,248,242,1),
+        520px 50px rgba(255,255,255,1),
+        700px 230px rgba(255,245,238,1),
+        950px 120px rgba(255,255,255,1),
+        40px 430px rgba(255,240,232,1),
+        250px 400px rgba(255,255,255,1),
+        460px 510px rgba(255,245,239,1),
+        700px 480px rgba(255,255,255,1),
+        940px 350px rgba(255,230,220,1),
+        1080px 520px rgba(255,255,255,1);
+      animation-delay: .9s;
     }
 
-    /* right column */
     .sparkle-layer span {
       left: 1300px;
       box-shadow:
         70px 70px rgba(255,255,255,1),
-        160px 210px rgba(255,223,214,0.95),
-        310px 100px rgba(255,248,242,0.95),
-        500px 60px rgba(255,255,255,0.9),
-        710px 240px rgba(255,245,238,0.9),
-        960px 110px rgba(255,255,255,0.9),
-        20px 420px rgba(255,240,232,0.95),
-        240px 380px rgba(255,255,255,0.9),
-        460px 520px rgba(255,245,239,0.9),
-        700px 480px rgba(255,255,255,0.95),
-        940px 360px rgba(255,230,220,0.9),
-        1080px 520px rgba(255,255,255,0.9);
-      animation-delay: 1.8s;
+        160px 210px rgba(255,223,214,1),
+        310px 100px rgba(255,248,242,1),
+        500px 60px rgba(255,255,255,1),
+        710px 240px rgba(255,245,238,1),
+        960px 110px rgba(255,255,255,1),
+        20px 420px rgba(255,240,232,1),
+        240px 380px rgba(255,255,255,1),
+        460px 520px rgba(255,245,239,1),
+        700px 480px rgba(255,255,255,1),
+        940px 360px rgba(255,230,220,1),
+        1080px 520px rgba(255,255,255,1);
+      animation-delay: 1.6s;
     }
 
-    /* LAYER 2 – medium sparkles */
+    /* LAYER 2 */
     .sparkle-layer2::before,
     .sparkle-layer2::after,
     .sparkle-layer2 span {
       content: "";
-      position: fixed;
+      position: absolute;
       top: -20px;
       width: 5px;
       height: 5px;
-      background: rgba(255,244,236,0.9);
+      background: rgba(255,244,236,0.95);
       transform: rotate(45deg);
       filter: drop-shadow(0 0 10px rgba(255,244,236,1));
-      animation: twinkleB 7.2s ease-in-out infinite;
+      animation: twinkleB 7s ease-in-out infinite;
     }
     .sparkle-layer2::before {
       left: -10px;
       box-shadow:
         140px 40px rgba(255,244,236,1),
-        260px 180px rgba(255,244,236,0.95),
-        420px 70px rgba(255,255,255,0.9),
-        610px 260px rgba(255,255,255,0.95),
-        820px 140px rgba(255,244,236,0.95),
-        990px 240px rgba(255,255,255,0.95),
-        180px 520px rgba(255,244,236,0.95),
-        380px 600px rgba(255,255,255,0.9),
-        560px 460px rgba(255,250,247,0.95),
-        880px 520px rgba(255,244,236,0.95),
-        1030px 430px rgba(255,255,255,0.95);
+        260px 180px rgba(255,244,236,1),
+        420px 70px rgba(255,255,255,1),
+        610px 260px rgba(255,255,255,1),
+        820px 140px rgba(255,244,236,1),
+        990px 240px rgba(255,255,255,1),
+        180px 520px rgba(255,244,236,1),
+        380px 600px rgba(255,255,255,1),
+        560px 460px rgba(255,250,247,1),
+        880px 520px rgba(255,244,236,1),
+        1030px 430px rgba(255,255,255,1);
       animation-delay: .4s;
     }
     .sparkle-layer2::after {
       left: 650px;
       box-shadow:
         140px 40px rgba(255,244,236,1),
-        260px 180px rgba(255,244,236,0.95),
-        420px 70px rgba(255,255,255,0.9),
-        610px 260px rgba(255,255,255,0.95),
-        820px 140px rgba(255,244,236,0.95),
-        990px 240px rgba(255,255,255,0.95),
-        180px 520px rgba(255,244,236,0.95),
-        380px 600px rgba(255,255,255,0.9),
-        560px 460px rgba(255,250,247,0.95),
-        880px 520px rgba(255,244,236,0.95),
-        1030px 430px rgba(255,255,255,0.95);
-      animation-delay: 1.5s;
+        260px 180px rgba(255,244,236,1),
+        420px 70px rgba(255,255,255,1),
+        610px 260px rgba(255,255,255,1),
+        820px 140px rgba(255,244,236,1),
+        990px 240px rgba(255,255,255,1),
+        180px 520px rgba(255,244,236,1),
+        380px 600px rgba(255,255,255,1),
+        560px 460px rgba(255,250,247,1),
+        880px 520px rgba(255,244,236,1),
+        1030px 430px rgba(255,255,255,1);
+      animation-delay: 1.2s;
     }
     .sparkle-layer2 span {
       left: 1300px;
       box-shadow:
         140px 40px rgba(255,244,236,1),
-        260px 180px rgba(255,244,236,0.95),
-        420px 70px rgba(255,255,255,0.9),
-        610px 260px rgba(255,255,255,0.95),
-        820px 140px rgba(255,244,236,0.95),
-        990px 240px rgba(255,255,255,0.95),
-        180px 520px rgba(255,244,236,0.95),
-        380px 600px rgba(255,255,255,0.9),
-        560px 460px rgba(255,250,247,0.95),
-        880px 520px rgba(255,244,236,0.95),
-        1030px 430px rgba(255,255,255,0.95);
-      animation-delay: 2.3s;
+        260px 180px rgba(255,244,236,1),
+        420px 70px rgba(255,255,255,1),
+        610px 260px rgba(255,255,255,1),
+        820px 140px rgba(255,244,236,1),
+        990px 240px rgba(255,255,255,1),
+        180px 520px rgba(255,244,236,1),
+        380px 600px rgba(255,255,255,1),
+        560px 460px rgba(255,250,247,1),
+        880px 520px rgba(255,244,236,1),
+        1030px 430px rgba(255,255,255,1);
+      animation-delay: 2s;
     }
 
-    /* LAYER 3 – tiny glints */
+    /* LAYER 3 */
     .sparkle-layer3::before,
     .sparkle-layer3::after,
     .sparkle-layer3 span {
       content: "";
-      position: fixed;
+      position: absolute;
       top: 0;
       width: 3px;
       height: 3px;
-      background: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.8);
       transform: rotate(45deg);
-      filter: drop-shadow(0 0 6px rgba(255,255,255,0.85));
-      animation: twinkleC 8.4s ease-in-out infinite;
+      filter: drop-shadow(0 0 6px rgba(255,255,255,1));
+      animation: twinkleC 8s ease-in-out infinite;
     }
     .sparkle-layer3::before {
       left: -20px;
       box-shadow:
-        60px 140px rgba(255,255,255,0.8),
-        210px 90px rgba(255,255,255,0.55),
-        350px 230px rgba(255,255,255,0.65),
-        480px 160px rgba(255,255,255,0.6),
-        640px 320px rgba(255,255,255,0.7),
-        820px 50px rgba(255,255,255,0.6),
-        950px 190px rgba(255,255,255,0.55),
-        1130px 260px rgba(255,255,255,0.55),
-        310px 520px rgba(255,255,255,0.5),
-        540px 610px rgba(255,255,255,0.55),
-        760px 560px rgba(255,255,255,0.65);
+        60px 140px rgba(255,255,255,1),
+        210px 90px rgba(255,255,255,1),
+        350px 230px rgba(255,255,255,1),
+        480px 160px rgba(255,255,255,1),
+        640px 320px rgba(255,255,255,1),
+        820px 50px rgba(255,255,255,1),
+        950px 190px rgba(255,255,255,1),
+        1130px 260px rgba(255,255,255,1),
+        310px 520px rgba(255,255,255,1),
+        540px 610px rgba(255,255,255,1),
+        760px 560px rgba(255,255,255,1);
       animation-delay: .6s;
     }
     .sparkle-layer3::after {
       left: 650px;
       box-shadow:
-        60px 140px rgba(255,255,255,0.8),
-        210px 90px rgba(255,255,255,0.55),
-        350px 230px rgba(255,255,255,0.65),
-        480px 160px rgba(255,255,255,0.6),
-        640px 320px rgba(255,255,255,0.7),
-        820px 50px rgba(255,255,255,0.6),
-        950px 190px rgba(255,255,255,0.55),
-        1130px 260px rgba(255,255,255,0.55),
-        310px 520px rgba(255,255,255,0.5),
-        540px 610px rgba(255,255,255,0.55),
-        760px 560px rgba(255,255,255,0.65);
+        60px 140px rgba(255,255,255,1),
+        210px 90px rgba(255,255,255,1),
+        350px 230px rgba(255,255,255,1),
+        480px 160px rgba(255,255,255,1),
+        640px 320px rgba(255,255,255,1),
+        820px 50px rgba(255,255,255,1),
+        950px 190px rgba(255,255,255,1),
+        1130px 260px rgba(255,255,255,1),
+        310px 520px rgba(255,255,255,1),
+        540px 610px rgba(255,255,255,1),
+        760px 560px rgba(255,255,255,1);
       animation-delay: 1.4s;
     }
     .sparkle-layer3 span {
       left: 1300px;
       box-shadow:
-        60px 140px rgba(255,255,255,0.8),
-        210px 90px rgba(255,255,255,0.55),
-        350px 230px rgba(255,255,255,0.65),
-        480px 160px rgba(255,255,255,0.6),
-        640px 320px rgba(255,255,255,0.7),
-        820px 50px rgba(255,255,255,0.6),
-        950px 190px rgba(255,255,255,0.55),
-        1130px 260px rgba(255,255,255,0.55),
-        310px 520px rgba(255,255,255,0.5),
-        540px 610px rgba(255,255,255,0.55),
-        760px 560px rgba(255,255,255,0.65);
+        60px 140px rgba(255,255,255,1),
+        210px 90px rgba(255,255,255,1),
+        350px 230px rgba(255,255,255,1),
+        480px 160px rgba(255,255,255,1),
+        640px 320px rgba(255,255,255,1),
+        820px 50px rgba(255,255,255,1),
+        950px 190px rgba(255,255,255,1),
+        1130px 260px rgba(255,255,255,1),
+        310px 520px rgba(255,255,255,1),
+        540px 610px rgba(255,255,255,1),
+        760px 560px rgba(255,255,255,1);
       animation-delay: 2s;
     }
 
-    /* ✨ SOFT TWINKLE (no bouncing, one bright moment) */
+    /* twinkle = only opacity, no scale */
     @keyframes twinkleA {
-      0%, 15%   { opacity: 0.08; transform: rotate(45deg) scale(1); }
-      19%       { opacity: 1;    transform: rotate(45deg) scale(1.35); }
-      28%       { opacity: .18;  transform: rotate(45deg) scale(1); }
-      100%      { opacity: 0.08; }
-    }
-    @keyframes twinkleB {
-      0%, 18%   { opacity: 0.05; transform: rotate(45deg) scale(1); }
-      23%       { opacity: 0.85; transform: rotate(45deg) scale(1.2); }
-      30%       { opacity: .15; }
+      0%, 15%   { opacity: 0.05; }
+      19%       { opacity: 1; }
+      28%       { opacity: 0.12; }
       100%      { opacity: 0.05; }
     }
-    @keyframes twinkleC {
-      0%, 22%   { opacity: 0.04; transform: rotate(45deg) scale(1); }
-      27%       { opacity: 0.6;  transform: rotate(45deg) scale(1.08); }
-      34%       { opacity: 0.08; }
+    @keyframes twinkleB {
+      0%, 18%   { opacity: 0.04; }
+      23%       { opacity: .8; }
+      32%       { opacity: 0.1; }
       100%      { opacity: 0.04; }
     }
+    @keyframes twinkleC {
+      0%, 22%   { opacity: 0.03; }
+      27%       { opacity: .55; }
+      35%       { opacity: 0.05; }
+      100%      { opacity: 0.03; }
+    }
 
-    /* film + grain */
+    /* film + grain (these can stay fixed, it’s subtle) */
     .film-lines {
       position: fixed;
       inset: 0;
@@ -270,7 +270,7 @@
       background-size: 3px 100%;
       opacity: 0.35;
       mix-blend-mode: soft-light;
-      z-index: 4;
+      z-index: 2;
     }
     .grain-layer {
       position: fixed;
@@ -283,7 +283,7 @@
       mix-blend-mode: soft-light;
       opacity: 0.22;
       animation: grainMove 18s linear infinite;
-      z-index: 5;
+      z-index: 2;
     }
     @keyframes grainMove {
       0%   { background-position: 0 0, 0 0; }
@@ -331,7 +331,7 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 18px 40px rgba(164, 90, 70, 0.13);
       position: relative;
-      z-index: 6;
+      z-index: 5;
     }
     .hero {
       max-width: var(--max);
@@ -396,7 +396,7 @@
       margin: 0 auto;
       padding: 2rem 1.25rem 0;
       position: relative;
-      z-index: 6;
+      z-index: 5;
     }
     .section-title {
       font-family: 'Playfair Display', serif;
@@ -489,7 +489,7 @@
       font-size: .68rem;
       padding: 1rem 0 2rem;
       position: relative;
-      z-index: 6;
+      z-index: 5;
     }
 
     @media (max-width: 880px) {
@@ -501,7 +501,7 @@
   </style>
 </head>
 <body>
-  <!-- sparkles + film + grain -->
+  <!-- sparkles (now absolute) + film + grain -->
   <div class="sparkle-layer"><span></span></div>
   <div class="sparkle-layer2"><span></span></div>
   <div class="sparkle-layer3"><span></span></div>
@@ -524,7 +524,6 @@
   <div class="hero-wrap" id="home">
     <main class="hero">
       <div class="hero-text">
-        <div class="tagline">CINEMATIC POP WITH VINTAGE ALLURE.</div>
         <div class="tagline-soft">VINTAGE ETHEREAL POP FOR THE DREAMERS &amp; THE HEARTBREAKERS</div>
         <h1>Born to Run</h1>
         <p>Jade Uchoa is a South Florida singer-songwriter blending old-Hollywood charm with a modern pop heartbeat. Her music moves between vulnerability and confidence, creating a world that’s dreamy, emotional, and undeniably hers.</p>
@@ -565,19 +564,17 @@
     <div class="visuals-grid">
       <div class="visual-item">
         <img src="phone-still.png" alt="Jade on telephone">
-        <span class="visual-label">Born to Run still</span>
       </div>
       <div class="visual-item">
         <img src="close-up-still.png" alt="Cinematic closeup">
-        <span class="visual-label">Cinematic closeup</span>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <h2 class="section-title">About Jade</h2>
+    <h2 class="section-title">About</h2>
     <p class="section-sub">
-      Jade Uchoa makes cinematic pop that’s equal parts vintage glamour and modern grit. Her music blends emotion, sensuality, and self-awareness — soft around the edges but never fragile. It’s timeless storytelling for the girls who live with their hearts wide open.
+      Jade Uchoa makes cinematic pop that’s equal parts vintage glamour and modern grit. Her music blends emotion, sensuality, and self-awareness. Soft around the edges but never fragile. It’s timeless storytelling for the girls who live with their hearts wide open.
     </p>
   </section>
 

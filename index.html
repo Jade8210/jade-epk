@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jade Uchoa</title>
-  <!-- fonts -->
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #f5e7e1;
@@ -18,36 +20,55 @@
       --muted: rgba(52, 29, 28, 0.65);
       --max: 1080px;
     }
+
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      /* base blush gradient + sparkles baked in */
-      background:
-        radial-gradient(circle, rgba(255,255,255,0.7) 1px, rgba(0,0,0,0) 1px) 0 0 / 120px 120px,
-        radial-gradient(circle, rgba(255,214,201,0.5) 1.2px, rgba(0,0,0,0) 1.2px) 40px 60px / 180px 180px,
-        radial-gradient(circle at top, #fbeee8 0%, #f0cfc1 55%, #e4b3a7 100%);
+      background: radial-gradient(circle at top, #fbeee8 0%, #f0cfc1 55%, #e4b3a7 100%);
       color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', sans-serif;
       line-height: 1.6;
+      overflow-x: hidden;
       position: relative;
-      min-height: 100vh;
     }
 
-    /* subtle vertical “film” lines over the whole page */
+    /* ✨ Twinkle Sparkles */
+    .star {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.9));
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 5;
+      animation: twinkle 3.5s ease-in-out infinite;
+    }
+
+    .star.s1 { top: 12%; left: 8%; animation-delay: 0s; }
+    .star.s2 { top: 28%; right: 10%; animation-delay: .8s; }
+    .star.s3 { bottom: 18%; left: 15%; animation-delay: 1.6s; }
+    .star.s4 { bottom: 30%; right: 22%; animation-delay: 2.2s; }
+    .star.s5 { top: 50%; left: 45%; animation-delay: 1s; width: 10px; height: 10px; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.4); }
+    }
+
+    /* Subtle film texture */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background-image: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 0);
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 0);
       background-size: 3px 100%;
+      opacity: 0.4;
       mix-blend-mode: soft-light;
-      opacity: 0.55;
-      z-index: 1;
+      z-index: 2;
     }
-
-    a { color: inherit; text-decoration: none; }
 
     header {
       position: sticky;
@@ -88,7 +109,7 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 18px 40px rgba(164, 90, 70, 0.13);
       position: relative;
-      z-index: 2;
+      z-index: 3;
     }
 
     .hero {
@@ -99,20 +120,8 @@
       gap: 2.2rem;
       padding: 2.5rem 1.75rem 2.25rem;
       align-items: center;
-      position: relative;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -42px;
-      left: 20px;
-      width: 110px;
-      height: 110px;
-      background: radial-gradient(circle, rgba(255, 225, 213, 0.5), rgba(245,231,226,0));
-      filter: blur(6px);
-      pointer-events: none;
-    }
-    .hero-text { position: relative; z-index: 3; }
+
     .hero-text h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 4vw, 3.1rem);
@@ -132,16 +141,10 @@
       font-size: 1.1rem;
       color: rgba(182, 104, 88, 0.82);
       margin-bottom: 1.3rem;
-      line-height: 1.2;
     }
 
     .hero-text p { max-width: 34rem; margin-bottom: 1.2rem; }
-    .badges {
-      display: flex;
-      gap: .5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.3rem;
-    }
+
     .badge {
       background: radial-gradient(circle at top, rgba(201,138,111,0.18), rgba(201,138,111,0));
       border: 1px solid rgba(201,138,111,0.35);
@@ -161,8 +164,6 @@
       overflow: hidden;
       min-height: 260px;
       box-shadow: 0 18px 45px rgba(164, 90, 70, 0.25);
-      position: relative;
-      z-index: 3;
     }
     .hero-media img {
       width: 100%;
@@ -171,38 +172,18 @@
       display: block;
       filter: saturate(0.98);
     }
-    .hero-media::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(252, 230, 225, 0.4) 0%, rgba(249, 226, 221, 0) 40%);
-      pointer-events: none;
-    }
 
     section {
       max-width: var(--max);
       margin: 0 auto;
       padding: 2rem 1.25rem 0;
-      position: relative;
-      z-index: 2;
     }
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.85rem;
       margin-bottom: .25rem;
       letter-spacing: -0.01em;
-      position: relative;
       display: inline-block;
-    }
-    .section-title::after {
-      content: "";
-      position: absolute;
-      bottom: -.45rem;
-      left: 0;
-      width: 46px;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(201,138,111,1) 0%, rgba(201,138,111,0) 100%);
-      border-radius: 999px;
     }
     .section-sub {
       color: rgba(52, 29, 28, 0.6);
@@ -218,7 +199,6 @@
     }
     .music-card {
       background: rgba(255, 244, 239, 0.58);
-      border: 1px solid rgba(201,138,111,0.12);
       border-radius: 1rem;
       padding: 1rem;
       display: flex;
@@ -230,99 +210,28 @@
       width: 90px;
       height: 90px;
       border-radius: .8rem;
-      background: rgba(245, 225, 218, 0.8);
       overflow: hidden;
       flex-shrink: 0;
     }
-    .music-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .music-meta h3 {
-      margin: 0 0 .35rem 0;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-    }
-    .music-meta p {
-      font-size: .72rem;
-      color: rgba(52, 29, 28, 0.6);
-      margin: 0 0 .5rem 0;
-    }
-    .small-link {
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      color: #c98a6f;
-    }
-
-    .visuals-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-    .visual-item {
-      background: rgba(255, 244, 239, 0.5);
-      border: 1px solid rgba(201,138,111,0.08);
-      border-radius: 1rem;
-      overflow: hidden;
-      min-height: 180px;
-      position: relative;
-      box-shadow: 0 10px 30px rgba(52, 29, 28, 0.06);
-    }
-    .visual-item img,
-    .visual-item video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .visual-label {
-      position: absolute;
-      bottom: .75rem;
-      left: .75rem;
-      background: rgba(0,0,0,0.45);
-      color: #fff;
-      padding: .3rem .6rem;
-      border-radius: 999px;
-      font-size: .6rem;
-      text-transform: uppercase;
-      letter-spacing: .15em;
-    }
-
-    .contact {
-      background: rgba(255, 244, 239, 0.6);
-      border: 1px solid rgba(201,138,111,0.04);
-      border-radius: 1.1rem 1.1rem 0 0;
-      margin-top: 3rem;
-      padding-bottom: 2.5rem;
-      box-shadow: 0 10px 30px rgba(52, 29, 28, 0.06);
-    }
-    .contact-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .contact-block p { margin: 0; }
+    .music-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
     footer {
       text-align: center;
       color: rgba(52, 29, 28, 0.35);
       font-size: .68rem;
       padding: 1rem 0 2rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    @media (max-width: 880px) {
-      .hero-wrap { margin: 3.5rem .75rem 2rem; }
-      .hero { grid-template-columns: 1fr; padding: 2.2rem 1.25rem; }
-      .hero-media { min-height: 240px; }
-      .nav-links { gap: .6rem; }
     }
   </style>
 </head>
+
 <body>
+  <!-- ✨ Sparkles -->
+  <div class="star s1"></div>
+  <div class="star s2"></div>
+  <div class="star s3"></div>
+  <div class="star s4"></div>
+  <div class="star s5"></div>
+
   <header>
     <div class="nav">
       <div class="brand">JADE UCHOA</div>
@@ -342,8 +251,9 @@
         <div class="tagline-soft">Vintage ethereal pop for the dreamers &amp; the heartbreakers</div>
         <h1>Born to Run</h1>
         <p>Jade Uchoa is a South Florida singer-songwriter blending old-Hollywood charm with a modern pop heartbeat. Her music moves between vulnerability and confidence, creating a world that’s dreamy, emotional, and undeniably hers.</p>
-        <div class="badges"><span class="badge">For press & playlists</span></div>
+        <span class="badge">For press & playlists</span>
       </div>
+
       <div class="hero-media">
         <img src="Born to Run cover art.png" alt="Jade Uchoa - Born to Run artwork">
       </div>
@@ -353,6 +263,7 @@
   <section id="music">
     <h2 class="section-title">Music</h2>
     <p class="section-sub">Featured single and upcoming releases.</p>
+
     <div class="music-grid">
       <article class="music-card">
         <div class="music-thumb">
@@ -361,7 +272,6 @@
         <div class="music-meta">
           <h3>Born to Run</h3>
           <p>Vintage, cinematic pop · coming December</p>
-          <span class="small-link">Private links available on request</span>
         </div>
       </article>
       <article class="music-card" style="background: rgba(255,255,255,0.25);">
@@ -369,49 +279,8 @@
         <div class="music-meta">
           <h3>Next era – coming soon</h3>
           <p>Reserved for future single / visual drop.</p>
-          <span class="small-link">Updated here first</span>
         </div>
       </article>
-    </div>
-  </section>
-
-  <section id="visuals">
-    <h2 class="section-title">Visuals & Stills</h2>
-    <p class="section-sub">Selected frames and promo imagery from the Born to Run visual world.</p>
-    <div class="visuals-grid">
-      <div class="visual-item">
-        <img src="phone-still.png" alt="Jade on telephone">
-      </div>
-      <div class="visual-item">
-        <img src="close-up-still.png" alt="Cinematic closeup">
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">About Jade</h2>
-    <p class="section-sub">Jade Uchoa makes cinematic pop that’s equal parts vintage glamour and modern grit. Her music blends emotion, sensuality, and self-awareness. Soft around the edges but never fragile. It’s timeless storytelling for the girls who live with their hearts wide open.</p>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contact / Press</h2>
-    <div class="contact-content">
-      <div class="contact-block">
-        <p><strong>Bookings / Press / Collabs:</strong></p>
-        <p><a href="mailto:jadeuchoa6@gmail.com">jadeuchoa6@gmail.com</a></p>
-      </div>
-      <div class="contact-block">
-        <p><strong>Socials:</strong></p>
-        <p>
-          <a href="https://www.youtube.com/@jadeuchoa" target="_blank">YouTube: @jadeuchoa</a><br>
-          <a href="https://www.instagram.com/jadeuchoa_/" target="_blank">Instagram: @jadeuchoa_</a><br>
-          <a href="https://www.tiktok.com/@jade_uchoa" target="_blank">TikTok: @jade_uchoa</a>
-        </p>
-      </div>
-      <div class="contact-block">
-        <p><strong>Location:</strong></p>
-        <p>South Florida · Available for travel</p>
-      </div>
     </div>
   </section>
 

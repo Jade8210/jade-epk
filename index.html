@@ -30,9 +30,8 @@
     }
 
     /* ===========================
-       ✨ MAGIC SPARKLE SYSTEM
+       ✨ WIDE MAGIC SPARKLES
        =========================== */
-    /* we use 3 layered fields, all fixed, all diamonds, all breathing only */
     .sparkle-layer,
     .sparkle-layer2,
     .sparkle-layer3 {
@@ -42,19 +41,24 @@
       z-index: 3;
     }
 
-    /* base diamond shape: 1 element + lots of box-shadows */
-    .sparkle-layer::before {
+    /* LAYER 1 – big bright diamonds */
+    .sparkle-layer::before,
+    .sparkle-layer::after {
       content: "";
       position: fixed;
       top: 0;
-      left: 0;
       width: 7px;
       height: 7px;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.75);
       transform: rotate(45deg);
       border-radius: 1px;
-      filter: drop-shadow(0 0 12px rgba(255,255,255,0.8));
-      /* many sparkles scattered */
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.85));
+      animation: sparklePulseA 6s ease-in-out infinite;
+    }
+
+    /* left half */
+    .sparkle-layer::before {
+      left: 0;
       box-shadow:
         90px 80px rgba(255,255,255,0.9),
         180px 260px rgba(255,223,214,0.95),
@@ -68,19 +72,41 @@
         700px 480px rgba(255,255,255,0.9),
         940px 360px rgba(255,230,220,0.9),
         1080px 520px rgba(255,255,255,0.85);
-      animation: sparklePulseA 6s ease-in-out infinite;
     }
 
-    .sparkle-layer2::before {
+    /* right half (shifted pattern) */
+    .sparkle-layer::after {
+      left: 600px; /* shift to right */
+      box-shadow:
+        90px 80px rgba(255,255,255,0.9),
+        180px 260px rgba(255,223,214,0.95),
+        320px 120px rgba(255,248,242,0.9),
+        520px 40px rgba(255,255,255,0.85),
+        720px 210px rgba(255,245,238,0.9),
+        980px 100px rgba(255,255,255,0.8),
+        60px 420px rgba(255,240,232,0.9),
+        280px 380px rgba(255,255,255,0.8),
+        460px 540px rgba(255,245,239,0.85),
+        700px 480px rgba(255,255,255,0.9),
+        940px 360px rgba(255,230,220,0.9),
+        1080px 520px rgba(255,255,255,0.85);
+    }
+
+    /* LAYER 2 – medium diamonds */
+    .sparkle-layer2::before,
+    .sparkle-layer2::after {
       content: "";
       position: fixed;
       top: -20px;
-      left: -10px;
       width: 5px;
       height: 5px;
       background: rgba(255,244,236,0.85);
       transform: rotate(45deg);
       filter: drop-shadow(0 0 10px rgba(255,244,236,0.7));
+      animation: sparklePulseB 7.5s ease-in-out infinite;
+    }
+    .sparkle-layer2::before {
+      left: -10px;
       box-shadow:
         140px 40px rgba(255,244,236,0.9),
         260px 180px rgba(255,244,236,0.85),
@@ -93,19 +119,38 @@
         560px 460px rgba(255,250,247,0.85),
         880px 520px rgba(255,244,236,0.9),
         1030px 430px rgba(255,255,255,0.85);
-      animation: sparklePulseB 7.5s ease-in-out infinite;
+    }
+    .sparkle-layer2::after {
+      left: 650px;
+      box-shadow:
+        140px 40px rgba(255,244,236,0.9),
+        260px 180px rgba(255,244,236,0.85),
+        420px 70px rgba(255,255,255,0.8),
+        610px 260px rgba(255,255,255,0.85),
+        820px 140px rgba(255,244,236,0.85),
+        990px 240px rgba(255,255,255,0.85),
+        180px 520px rgba(255,244,236,0.85),
+        380px 600px rgba(255,255,255,0.78),
+        560px 460px rgba(255,250,247,0.85),
+        880px 520px rgba(255,244,236,0.9),
+        1030px 430px rgba(255,255,255,0.85);
     }
 
-    .sparkle-layer3::before {
+    /* LAYER 3 – tiny distant sparkles */
+    .sparkle-layer3::before,
+    .sparkle-layer3::after {
       content: "";
       position: fixed;
-      top: -30px;
-      left: -30px;
-      width: 4px;
-      height: 4px;
+      top: 0;
+      width: 3px;
+      height: 3px;
       background: rgba(255,255,255,0.5);
       transform: rotate(45deg);
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.55));
+      filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+      animation: sparklePulseC 9s ease-in-out infinite;
+    }
+    .sparkle-layer3::before {
+      left: -20px;
       box-shadow:
         60px 140px rgba(255,255,255,0.6),
         210px 90px rgba(255,255,255,0.48),
@@ -118,7 +163,21 @@
         310px 520px rgba(255,255,255,0.45),
         540px 610px rgba(255,255,255,0.5),
         760px 560px rgba(255,255,255,0.6);
-      animation: sparklePulseC 9s ease-in-out infinite;
+    }
+    .sparkle-layer3::after {
+      left: 700px;
+      box-shadow:
+        60px 140px rgba(255,255,255,0.6),
+        210px 90px rgba(255,255,255,0.48),
+        350px 230px rgba(255,255,255,0.55),
+        480px 160px rgba(255,255,255,0.55),
+        640px 320px rgba(255,255,255,0.6),
+        820px 50px rgba(255,255,255,0.55),
+        950px 190px rgba(255,255,255,0.5),
+        1130px 260px rgba(255,255,255,0.5),
+        310px 520px rgba(255,255,255,0.45),
+        540px 610px rgba(255,255,255,0.5),
+        760px 560px rgba(255,255,255,0.6);
     }
 
     @keyframes sparklePulseA {
@@ -134,9 +193,7 @@
       50%      { opacity: 0.6; transform: rotate(45deg) scale(1.15); }
     }
 
-    /* ===========================
-       🎞 Film + grain overlay
-       =========================== */
+    /* film + grain */
     .film-lines {
       position: fixed;
       inset: 0;
@@ -165,9 +222,6 @@
       100% { background-position: 180px 240px, -120px 180px; }
     }
 
-    /* ===========================
-       NAV + HERO + Sections
-       =========================== */
     header {
       position: sticky;
       top: 0;
@@ -242,7 +296,6 @@
       margin-bottom: 1.3rem;
     }
     .hero-text p { max-width: 34rem; margin-bottom: 1.2rem; }
-
     .badge {
       background: radial-gradient(circle at top, rgba(201,138,111,0.18), rgba(201,138,111,0));
       border: 1px solid rgba(201,138,111,0.35);
@@ -290,7 +343,6 @@
       max-width: 42rem;
     }
 
-    /* MUSIC */
     .music-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -315,7 +367,6 @@
     }
     .music-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* VISUALS */
     .visuals-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -336,7 +387,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
     .visual-label {
       position: absolute;
@@ -351,7 +401,6 @@
       letter-spacing: .15em;
     }
 
-    /* CONTACT */
     .contact {
       background: rgba(255, 244, 239, 0.6);
       border-radius: 1.1rem 1.1rem 0 0;
@@ -364,7 +413,6 @@
       flex-wrap: wrap;
       gap: 2rem;
     }
-    .contact a { color: var(--text); }
 
     footer {
       text-align: center;
@@ -419,7 +467,6 @@
     </main>
   </div>
 
-  <!-- MUSIC -->
   <section id="music">
     <h2 class="section-title">Music</h2>
     <p class="section-sub">Featured single and upcoming releases.</p>
@@ -443,7 +490,6 @@
     </div>
   </section>
 
-  <!-- VISUALS & STILLS -->
   <section id="visuals">
     <h2 class="section-title">Visuals &amp; Stills</h2>
     <p class="section-sub">Selected frames and promo imagery from the Born to Run visual world.</p>
@@ -457,7 +503,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <h2 class="section-title">About</h2>
     <p class="section-sub">
@@ -465,7 +510,6 @@
     </p>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2 class="section-title">Contact / Press</h2>
     <div class="contact-content">

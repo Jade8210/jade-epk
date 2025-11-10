@@ -6,7 +6,6 @@
   <title>Jade Uchoa</title>
   <style>
     :root {
-      /* colors that match your screenshot */
       --base: #ffd6c2;
       --mid: #f2a88a;
       --deep: #ce6b53;
@@ -34,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* film grain overlay */
     .film-overlay {
       pointer-events: none;
       position: fixed;
@@ -96,7 +94,6 @@
       z-index: 2;
     }
 
-    /* hero */
     .hero {
       background: rgba(255, 243, 238, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.45);
@@ -281,7 +278,7 @@
     }
 
     .contact-grid {
-      background: rgba(255, 243, 238, 0.75);
+      background: rgba(255, 243, 238, 0.5); /* matched to about box */
       border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 24px;
       padding: 1.3rem 1.3rem 1.1rem;
@@ -309,7 +306,6 @@
       color: rgba(255, 239, 233, 0.72);
     }
 
-    /* sparkle layer */
     .sparkle-layer {
       position: fixed;
       inset: 0;
@@ -334,7 +330,6 @@
       55% { opacity: 0.35; }
     }
 
-    /* responsive */
     @media (max-width: 880px) {
       .hero {
         grid-template-columns: 1fr;
@@ -349,9 +344,8 @@
   </style>
 </head>
 <body>
-  <!-- sparkles -->
   <div class="sparkle-layer">
-    <!-- left column -->
+    <!-- left -->
     <div class="sparkle" style="top:9%; left:4%; animation-delay:0.2s;"></div>
     <div class="sparkle" style="top:18%; left:7%; animation-delay:1.4s;"></div>
     <div class="sparkle" style="top:33%; left:6%; animation-delay:2.1s;"></div>
@@ -406,7 +400,6 @@
   </header>
 
   <main>
-    <!-- hero -->
     <section id="home" class="hero">
       <div>
         <div class="hero-tagline">Vintage ethereal pop for the dreamers &amp; the heartbreakers</div>
@@ -422,7 +415,6 @@
       </div>
     </section>
 
-    <!-- music -->
     <section id="music">
       <h2 class="section-title">Music</h2>
       <p class="section-sub">Featured single and upcoming releases.</p>
@@ -448,24 +440,21 @@
       </div>
     </section>
 
-    <!-- visuals -->
     <section id="visuals">
       <h2 class="section-title">Visuals &amp; Stills</h2>
       <p class="section-sub">Selected frames and promo imagery from the Born to Run visual world.</p>
       <div class="visuals-grid">
-        <div class="visual-card">
-          <img src="epk" alt="Born to Run teaser frame" />
-        </div>
-        <div class="visual-card">
-          <img src="close-up-still.png" alt="Jade close-up still" />
-        </div>
+        <!-- phone still FIRST -->
         <div class="visual-card">
           <img src="phone-still.png" alt="Jade phone still" />
+        </div>
+        <!-- close-up SECOND -->
+        <div class="visual-card">
+          <img src="close-up-still.png" alt="Jade close-up still" />
         </div>
       </div>
     </section>
 
-    <!-- about -->
     <section id="about">
       <h2 class="section-title">About</h2>
       <div class="about-box">
@@ -477,7 +466,6 @@
       </div>
     </section>
 
-    <!-- contact -->
     <section id="contact">
       <h2 class="section-title">Contact / Press</h2>
       <div class="contact-grid">

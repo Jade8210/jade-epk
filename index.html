@@ -67,10 +67,11 @@
       }
     }
 
-    /* ===== SPARKLES (L, middle, R) ===== */
+    /* ===== SPARKLES LAYERS ===== */
     .sparkle-layer,
     .sparkle-layer2,
-    .sparkle-layer3 {
+    .sparkle-layer3,
+    .sparkle-layer4 {
       position: fixed;
       inset: 0;
       pointer-events: none;
@@ -81,7 +82,9 @@
     .sparkle-layer2::before,
     .sparkle-layer2::after,
     .sparkle-layer3::before,
-    .sparkle-layer3::after {
+    .sparkle-layer3::after,
+    .sparkle-layer4::before,
+    .sparkle-layer4::after {
       content: "";
       position: absolute;
       width: 7px;
@@ -159,7 +162,7 @@
         650px 70px rgba(248,205,191,.7);
     }
 
-    /* RIGHT SIDE filler */
+    /* RIGHT side */
     .sparkle-layer3::before {
       top: 0;
       right: 40px;
@@ -185,7 +188,31 @@
         -340px 210px rgba(248,205,191,.8);
     }
 
-    /* ===== film & grain (bring ABOVE content) ===== */
+    /* CENTER filler (your missing part) */
+    .sparkle-layer4::before {
+      top: 120px;
+      left: 45%;
+      animation: twinkleMed 5.6s ease-in-out infinite;
+      box-shadow:
+        0px 40px rgba(248,205,191,.9),
+        -40px 120px rgba(248,205,191,.9),
+        40px 150px rgba(248,205,191,.9),
+        -80px 220px rgba(248,205,191,.9),
+        80px 260px rgba(248,205,191,.9);
+    }
+    .sparkle-layer4::after {
+      top: 460px;
+      left: 48%;
+      animation: twinkleFast 4.2s ease-in-out infinite;
+      box-shadow:
+        0 40px rgba(248,205,191,.8),
+        -30px 120px rgba(248,205,191,.8),
+        30px 160px rgba(248,205,191,.8),
+        -65px 210px rgba(248,205,191,.8),
+        65px 250px rgba(248,205,191,.8);
+    }
+
+    /* ===== film & grain ===== */
     .film-lines {
       position: fixed;
       inset: 0;
@@ -489,6 +516,7 @@
   <div class="sparkle-layer"></div>
   <div class="sparkle-layer2"></div>
   <div class="sparkle-layer3"></div>
+  <div class="sparkle-layer4"></div>
   <!-- film & grain -->
   <div class="film-lines"></div>
   <div class="grain-layer"></div>

@@ -35,33 +35,70 @@
       overflow-x: hidden;
     }
 
-    /* ===== STATIC SPARKLES (no animation) ===== */
+    /* ===== twinkle animation ===== */
+    @keyframes twinkleSlow {
+      0%, 100% {
+        opacity: .25;
+        transform: scale(.9) rotate(45deg);
+      }
+      45% {
+        opacity: 1;
+        transform: scale(1.25) rotate(45deg);
+      }
+    }
+    @keyframes twinkleMed {
+      0%, 100% {
+        opacity: .2;
+        transform: scale(.85) rotate(45deg);
+      }
+      55% {
+        opacity: .95;
+        transform: scale(1.15) rotate(45deg);
+      }
+    }
+    @keyframes twinkleFast {
+      0%, 100% {
+        opacity: .3;
+        transform: scale(.8) rotate(45deg);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1) rotate(45deg);
+      }
+    }
+
+    /* ===== SPARKLES (L, middle, R) ===== */
     .sparkle-layer,
-    .sparkle-layer2 {
+    .sparkle-layer2,
+    .sparkle-layer3 {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: 3; /* below film/grain, above background */
+      z-index: 3;
     }
     .sparkle-layer::before,
     .sparkle-layer::after,
     .sparkle-layer2::before,
-    .sparkle-layer2::after {
+    .sparkle-layer2::after,
+    .sparkle-layer3::before,
+    .sparkle-layer3::after {
       content: "";
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       background: rgba(248, 205, 191, 0.98);
-      transform: rotate(45deg);
       border-radius: 1px;
+      transform: rotate(45deg);
       filter:
         drop-shadow(0 0 8px rgba(255, 232, 222, 1))
-        drop-shadow(0 0 13px rgba(255, 255, 255, 0.65));
+        drop-shadow(0 0 13px rgba(255, 255, 255, 0.6));
     }
-    /* top / middle scatter */
+
+    /* left / center */
     .sparkle-layer::before {
       top: 0;
       left: 0;
+      animation: twinkleSlow 6s ease-in-out infinite;
       box-shadow:
         40px 55px rgba(248,205,191,.9),
         110px 130px rgba(248,205,191,.9),
@@ -71,20 +108,12 @@
         380px 150px rgba(248,205,191,.9),
         460px 45px rgba(248,205,191,.9),
         540px 160px rgba(248,205,191,.9),
-        620px 70px rgba(248,205,191,.9),
-        700px 140px rgba(248,205,191,.9),
-        780px 40px rgba(248,205,191,.9),
-        860px 120px rgba(248,205,191,.9),
-        940px 65px rgba(248,205,191,.9),
-        1020px 150px rgba(248,205,191,.9),
-        1100px 35px rgba(248,205,191,.9),
-        1180px 105px rgba(248,205,191,.9),
-        1260px 55px rgba(248,205,191,.9),
-        1340px 150px rgba(248,205,191,.9);
+        620px 70px rgba(248,205,191,.9);
     }
     .sparkle-layer::after {
-      top: 240px;
-      left: 120px;
+      top: 230px;
+      left: 80px;
+      animation: twinkleMed 5.2s ease-in-out infinite;
       box-shadow:
         20px 40px rgba(248,205,191,.85),
         90px 120px rgba(248,205,191,.85),
@@ -95,16 +124,14 @@
         510px 30px rgba(248,205,191,.85),
         600px 150px rgba(248,205,191,.85),
         690px 70px rgba(248,205,191,.85),
-        780px 120px rgba(248,205,191,.85),
-        870px 50px rgba(248,205,191,.85),
-        960px 135px rgba(248,205,191,.85),
-        1050px 80px rgba(248,205,191,.85),
-        1140px 150px rgba(248,205,191,.85);
+        780px 120px rgba(248,205,191,.85);
     }
-    /* bottom scatter */
+
+    /* bottom / middle */
     .sparkle-layer2::before {
       top: 520px;
-      left: 60px;
+      left: 30px;
+      animation: twinkleFast 4.7s ease-in-out infinite;
       box-shadow:
         40px 50px rgba(248,205,191,.9),
         110px 160px rgba(248,205,191,.9),
@@ -114,16 +141,12 @@
         470px 270px rgba(248,205,191,.9),
         560px 80px rgba(248,205,191,.9),
         650px 210px rgba(248,205,191,.9),
-        740px 120px rgba(248,205,191,.9),
-        830px 260px rgba(248,205,191,.9),
-        920px 180px rgba(248,205,191,.9),
-        1010px 90px rgba(248,205,191,.9),
-        1100px 240px rgba(248,205,191,.9),
-        1190px 140px rgba(248,205,191,.9);
+        740px 120px rgba(248,205,191,.9);
     }
     .sparkle-layer2::after {
       top: 780px;
       left: 140px;
+      animation: twinkleSlow 7s ease-in-out infinite;
       box-shadow:
         20px 40px rgba(248,205,191,.7),
         90px 120px rgba(248,205,191,.7),
@@ -136,16 +159,42 @@
         650px 70px rgba(248,205,191,.7);
     }
 
-    /* ===== film & grain on top ===== */
+    /* RIGHT SIDE filler */
+    .sparkle-layer3::before {
+      top: 0;
+      right: 40px;
+      animation: twinkleMed 6.3s ease-in-out infinite;
+      box-shadow:
+        0px 40px rgba(248,205,191,.9),
+        -70px 130px rgba(248,205,191,.9),
+        -20px 210px rgba(248,205,191,.9),
+        -110px 90px rgba(248,205,191,.9),
+        -160px 180px rgba(248,205,191,.9),
+        -230px 40px rgba(248,205,191,.9);
+    }
+    .sparkle-layer3::after {
+      top: 420px;
+      right: 90px;
+      animation: twinkleFast 4.9s ease-in-out infinite;
+      box-shadow:
+        0px 50px rgba(248,205,191,.8),
+        -60px 150px rgba(248,205,191,.8),
+        -140px 70px rgba(248,205,191,.8),
+        -200px 190px rgba(248,205,191,.8),
+        -280px 120px rgba(248,205,191,.8),
+        -340px 210px rgba(248,205,191,.8);
+    }
+
+    /* ===== film & grain (bring ABOVE content) ===== */
     .film-lines {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background-image: linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 0);
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 0);
       background-size: 3px 100%;
-      opacity: 0.35;
+      opacity: 0.42;
       mix-blend-mode: soft-light;
-      z-index: 4;
+      z-index: 18;
     }
     .grain-layer {
       position: fixed;
@@ -153,12 +202,12 @@
       pointer-events: none;
       background-image:
         radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px),
-        radial-gradient(circle, rgba(254,226,214,0.06) 1px, transparent 1px);
+        radial-gradient(circle, rgba(254,226,214,0.05) 1px, transparent 1px);
       background-size: 180px 180px, 120px 120px;
       mix-blend-mode: soft-light;
-      opacity: 0.27;
+      opacity: 0.25;
       animation: grainMove 18s linear infinite;
-      z-index: 4;
+      z-index: 19;
     }
     @keyframes grainMove {
       0% { background-position: 0 0, 0 0; }
@@ -168,7 +217,7 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 30;
       backdrop-filter: blur(18px);
       background: rgba(244, 189, 172, 0.68);
       border-bottom: 1px solid rgba(90,31,37,0.08);
@@ -195,6 +244,7 @@
       color: var(--ink);
       opacity: 0.78;
       transition: opacity .3s ease;
+      text-decoration: none;
     }
     .nav-links a:hover { opacity: 1; }
 
@@ -207,7 +257,7 @@
       box-shadow: 0 28px 60px rgba(97,28,31,0.12);
       backdrop-filter: blur(5px);
       position: relative;
-      z-index: 5;
+      z-index: 20;
     }
     .hero {
       max-width: var(--max);
@@ -294,7 +344,7 @@
       margin: 0 auto;
       padding: 2rem 1.25rem 0;
       position: relative;
-      z-index: 5;
+      z-index: 20;
     }
     .section-title {
       font-family: 'Playfair Display', serif;
@@ -327,9 +377,9 @@
       box-shadow: 0 0 0 rgba(90,31,37,0);
     }
     .music-card:hover {
-      background: rgba(238, 189, 172, 0.68);
+      background: rgba(238, 189, 172, 0.85);
       transform: translateY(-3px);
-      box-shadow: 0 14px 30px rgba(90,31,37,0.16);
+      box-shadow: 0 18px 30px rgba(90,31,37,0.18);
     }
     .music-thumb {
       width: 90px;
@@ -424,7 +474,7 @@
       font-size: .68rem;
       padding: 1rem 0 2rem;
       position: relative;
-      z-index: 5;
+      z-index: 20;
     }
 
     @media (max-width: 880px) {
@@ -435,10 +485,11 @@
   </style>
 </head>
 <body>
-  <!-- static sparkles -->
+  <!-- sparkles -->
   <div class="sparkle-layer"></div>
   <div class="sparkle-layer2"></div>
-  <!-- film + grain on top -->
+  <div class="sparkle-layer3"></div>
+  <!-- film & grain -->
   <div class="film-lines"></div>
   <div class="grain-layer"></div>
 
